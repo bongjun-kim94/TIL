@@ -9,49 +9,43 @@
 + 도메인 별로 관리 할 수 있다.
 + 도메인창을 닫더라도 유지된다.
 
-<pre>
-    <code>
-        if(typeof(Storage) !== "undefined") {
-            localStorage.setItem("name","bongjun kim");
-        }
+```javascript
+    if(typeof(Storage) !== "undefined") {
+        localStorage.setItem("name","bongjun kim");
+    }
 
-        console.log(localStorage.getItem("name")); // bongjun kim
-    </code>
-</pre>
+    console.log(localStorage.getItem("name")); // bongjun kim
+```
 
 ## sessionStorage
 
 + 같은 브라우저 탭에서만 유지된다.
 + 탭을 닫는순간 사라지는 데이터
 
-<pre>
-    <code>
-        if(typeof(Storage) !== "undefined") {
-            sessionStorage.setItem("name2","Bongjun Kim");
-        }
+```javascript
+    if(typeof(Storage) !== "undefined") {
+        sessionStorage.setItem("name2","Bongjun Kim");
+    }
 
-        console.log(sessionStorage.getItem("name2")); // Bongjun Kim
-    </code>
-</pre>
-
+    console.log(sessionStorage.getItem("name2")); // Bongjun Kim
+```
 
 ## 배열을 저장하고 싶다면?
 
-<pre>
-    <code>
-        if(typeof(Storage) !== "undefined") {
-            // 배열 저장, 문자열로 변환해서 저장
-            // JSON.stringify : json 객체를 String 객체로 변환시켜 줍니다.
-            let array = ["a","b"];
-            localStorage.setItem("array",JSON.stringify(array));
-        }
+```javascript
+    if(typeof(Storage) !== "undefined") {
+        // 배열 저장, 문자열로 변환해서 저장
+        // JSON.stringify : json 객체를 String 객체로 변환시켜 줍니다.
+        let array = ["a","b"];
+        localStorage.setItem("array",JSON.stringify(array));
+    }
 
-        // 배열처럼 보이는 문자로 저장
-        console.log(localStorage.getItem("array")); // ["a","b"]
-        // JSON.parse : string 객체를 json 객체로 변환시켜줍니다.
-        console.log(JSON.parse(localStorage.getItem("array"))); (2) ["a", "b"]
-    </code>
-</pre>
+    // 배열처럼 보이는 문자로 저장
+    console.log(localStorage.getItem("array")); // ["a","b"]
+    // JSON.parse : string 객체를 json 객체로 변환시켜줍니다.
+    console.log(JSON.parse(localStorage.getItem("array"))); (2) ["a", "b"]
+```
+
 
 
 - - -
