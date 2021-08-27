@@ -1,11 +1,12 @@
 # Arry method
 
 ### sort
+
     배열을 오름차순, 내림차순으로 정렬한다.
 
 ```javascript
 const arr = [3, 5, 8, 2, 1];
-const result = arr.sort()
+const result = arr.sort();
 console.log(result); // [1, 2, 3, 5, 8]
 
 // 거꾸로 출력
@@ -23,7 +24,6 @@ const arr = [3, 5, 8, 2, 1];
 arr.splice(1, 2);
 
 console.log(arr); // [3, 2, 1]
-
 ```
 
 ### slice
@@ -35,7 +35,6 @@ const arr = [1, 2, 3, 4, 5];
 // 1번째부터 3전까지 반환
 
 console.log(arr.slice(1, 3)); // [2, 3]
-
 ```
 
 ### concat
@@ -48,4 +47,11 @@ const arr = [1, 2, 3];
 console.log(arr.concat([4, 5])); // [1, 2, 3, 4, 5]
 
 console.log(arr.concat([4, 5], [6, 7])); // [1, 2, 3, 4, 5, 6, 7]
+```
+
+### indexOf / lastIndexOf
+
+```javascript
+const arr = [1, 2, 3, 4, 5];
+arr.indexOf(3); // 2
 ```
