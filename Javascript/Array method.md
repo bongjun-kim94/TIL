@@ -92,3 +92,55 @@ console.log(arr.reverse()); // [5, 4, 3, 2, 1]
 ```
 
 ### map
+
+    함수를 받아 특정 기능을 실행, 새로운 배열을 반환
+
+```javascript
+const userList = [
+  {
+    name: "test1",
+    age: 20,
+  },
+  {
+    name: "test2",
+    age: 30,
+  },
+  {
+    name: "test3",
+    age: 40,
+  },
+];
+
+const newUserList = userList.map((user, index) => {
+  return Object.assign({}, user, {
+    id: index + 1,
+    isAdult: user.age > 25,
+  });
+});
+
+console.log(newUserList);
+```
+
+### join
+
+    배열을 합쳐서 문자열을 만듬
+
+```javascript
+const arr = ["안녕", "하세요", "여러분"];
+
+const result = arr.join();
+
+console.log(result); // 안녕,하세요,여러분
+```
+
+### split
+
+    문자열을 나눠서 배열로 만들어줌
+
+```javascript
+const arr = "안녕, 하세요, 여러분";
+
+const result = arr.split(",");
+
+console.log(result); // ['안녕', '하세요' , '여러분']
+```
