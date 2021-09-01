@@ -4,6 +4,8 @@
 
     배열을 오름차순, 내림차순으로 정렬한다.
 
+    배열 자체가 변경되니까 조심!
+
 ```javascript
 const arr = [3, 5, 8, 2, 1];
 const result = arr.sort();
@@ -12,6 +14,8 @@ console.log(result); // [1, 2, 3, 5, 8]
 // 거꾸로 출력
 const result2 = arr.sort((a, b) => b - a);
 console.log(result2); // [8, 5, 3, 2, 1]
+
+function
 ```
 
 ### splice
@@ -143,4 +147,34 @@ const arr = "안녕, 하세요, 여러분";
 const result = arr.split(",");
 
 console.log(result); // ['안녕', '하세요' , '여러분']
+```
+
+### reduce
+
+arr.redece()
+인수로 함수를 받음
+(누적 계산값, 현재값) => { return 계산값 };
+
+```javascript
+// forEach
+const arr = [1, 2, 3, 4, 5];
+
+let result = 0;
+
+arr.forEach((num) => {
+  result += num;
+});
+
+console.log(result); // 15
+
+// arr.reduce()
+const arr = [1, 2, 3, 4, 5];
+
+const result = arr.reduce((prev, cur) => {
+  // 누적 계산값 + 현재값
+  return prev + cur;
+  // 초기값 0, 안써도 상관은 x (첫 번째 요소가 들어감)
+}, 0);
+
+console.log(result);
 ```
