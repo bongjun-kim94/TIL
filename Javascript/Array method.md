@@ -177,4 +177,39 @@ const result = arr.reduce((prev, cur) => {
 }, 0);
 
 console.log(result);
+
+// 나이가 15세 이상인 사람의 이름만 출력
+let userList = [
+  { name: "mike", age: 30 },
+  { name: "mike2", age: 35 },
+  { name: "mike3", age: 10 },
+  { name: "mike4", age: 20 },
+  { name: "mike5", age: 25 },
+  { name: "mike6", age: 8 },
+];
+
+let result = userList.reduce((prev, cur) => {
+  if (cur.age > 15) {
+    prev.push(cur.name);
+  }
+  return prev;
+}, []);
+
+console.log(result); // ['mike', 'mike2', 'mike4', 'mike5']
+
+// 나이의 합
+let userList = [
+  { name: "mike", age: 30 },
+  { name: "mike2", age: 35 },
+  { name: "mike3", age: 10 },
+  { name: "mike4", age: 20 },
+  { name: "mike5", age: 25 },
+  { name: "mike6", age: 8 },
+];
+
+let result = userList.reduce((prev, cur) => {
+  return (prev += cur.age);
+}, 0);
+
+console.log(result); // 128
 ```
