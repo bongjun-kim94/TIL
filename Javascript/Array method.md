@@ -221,9 +221,23 @@ console.log(result); // 128
 ```javascript
 let names = ["Mike", "Tom", "Jane"];
 
+// 배열 구조분해
 let [names1, names2, names3] = names;
 
 console.log(names1); // 'Mike'
 console.log(names2); // 'Tom'
 console.log(names3); // 'Jane'
+
+// 객체 구조분해
+let user = { name: "Mike", age: 30 };
+let { name, age } = user; // let name = user.name
+
+console.log(name); // 'Mike'
+console.log(age); // 30
+
+// 새로운 변수 이름으로 할당 가능
+let { name: userName, age: userAge } = user;
+
+console.log(userName); // 'Mike'
+console.log(userAge); // 30
 ```
