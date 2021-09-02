@@ -213,3 +213,17 @@ let result = userList.reduce((prev, cur) => {
 
 console.log(result); // 128
 ```
+
+### 구조분해할당
+
+    배열이나 객체의 속성을 분해해서 그 값을 변수에 담을 수 있게 하는 표현식
+
+```javascript
+let names = ["Mike", "Tom", "Jane"];
+
+let [names1, names2, names3] = names;
+
+console.log(names1); // 'Mike'
+console.log(names2); // 'Tom'
+console.log(names3); // 'Jane'
+```
