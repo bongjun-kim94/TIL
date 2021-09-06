@@ -8,7 +8,9 @@
 const fs = require("fs");
 
 // 문자 하나만 입력받을 경우
-const input = fs.readFileSync("/dev/stdin").toString();
+const input = fs.readFileSync("/dev/stdin").toString().split(" ");
+
+let num = Number(input[0]);
 
 // 한 칸 띄어쓰기로 구분
 // input[0], input[1] 에서 사용
@@ -16,6 +18,26 @@ const input = fs.readFileSync("/dev/stdin").toString().split(" ");
 
 // 줄 바꿈으로 구분
 const input = fs.readFileSync("/dev/stdin").toString().split("\n");
+
+// 여러 줄 입력받기
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().split("\n");
+
+const count = input[0];
+const numbers = [];
+
+for (let i = 1; i < input.length; i++) {
+  if (input[i] !== "") {
+    numbers.push(input[i].split(" "));
+  }
+}
+
+for (let i = 0; i < numbers.length; i++) {
+  const num1 = Number(numbers[i][0]);
+  const num2 = Number(numbers[i][1]);
+
+  console.log(num1 + num2);
+}
 ```
 
 ## readline module
