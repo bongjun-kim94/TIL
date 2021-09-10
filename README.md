@@ -8,8 +8,8 @@
 
 ## JavaScript
 
+- [javascript es6문법](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/javascript%20es6.md)
 - [let,const or var 차이점](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/20210804.md)
-<!-- - [화살표 함수]() -->
 - [로컬스토리지, 세션스토리지](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/localStorage%2C%20sessionStorage.md)
 
 ## React
