@@ -9,7 +9,7 @@
 ## JavaScript
 
 - [javascript es6문법](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/javascript%20es6.md)
-- [let,const or var 차이점](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/20210804.md)
+- [let,const or var 차이점](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/let%20and%20const.md)
 - [로컬스토리지, 세션스토리지](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/localStorage%2C%20sessionStorage.md)
 - [배열 메소드(array method)](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/Array%20method.md)
 
