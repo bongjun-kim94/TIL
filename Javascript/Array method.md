@@ -132,7 +132,7 @@ console.log(newUserList);
 ```javascript
 const arr = ["안녕", "하세요", "여러분"];
 
-const result = arr.join();
+const result = arr.join(); // 구분자를 넣지 않아도 출력됨 기본은 ,(콤마)
 
 console.log(result); // 안녕,하세요,여러분
 ```
@@ -144,9 +144,11 @@ console.log(result); // 안녕,하세요,여러분
 ```javascript
 const arr = "안녕, 하세요, 여러분";
 
-const result = arr.split(",");
+const result = arr.split(","); // 구분자로 전달해 주어야함
+const result1 = arr.split(",", 2);
 
 console.log(result); // ['안녕', '하세요' , '여러분']
+console.log(result1); // ['안녕', '하세요']
 ```
 
 ### reduce
