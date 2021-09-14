@@ -153,9 +153,9 @@ console.log(result1); // ['안녕', '하세요']
 
 ### reduce
 
-arr.redece()
-인수로 함수를 받음
-(누적 계산값, 현재값) => { return 계산값 };
+    arr.redece()
+    인수로 함수를 받음
+    (누적 계산값, 현재값) => { return 계산값 };
 
 ```javascript
 // forEach
@@ -216,30 +216,15 @@ let result = userList.reduce((prev, cur) => {
 console.log(result); // 128
 ```
 
-### 구조분해할당
+### push
 
-    배열이나 객체의 속성을 분해해서 그 값을 변수에 담을 수 있게 하는 표현식
+    배열 끝에 여러 값을 추가함
 
 ```javascript
-let names = ["Mike", "Tom", "Jane"];
+let name = ["kim", "lee", "park"];
+let add = name.push("choi", "song");
 
-// 배열 구조분해
-let [names1, names2, names3] = names;
-
-console.log(names1); // 'Mike'
-console.log(names2); // 'Tom'
-console.log(names3); // 'Jane'
-
-// 객체 구조분해
-let user = { name: "Mike", age: 30 };
-let { name, age } = user; // let name = user.name
-
-console.log(name); // 'Mike'
-console.log(age); // 30
-
-// 새로운 변수 이름으로 할당 가능
-let { name: userName, age: userAge } = user;
-
-console.log(userName); // 'Mike'
-console.log(userAge); // 30
+console.log(name); // ['kim', 'lee', 'park', 'choi', 'song'];
+// add 변수는 추가한 배열의 새 길이 값을 포함
+console.log(add); // 5
 ```
