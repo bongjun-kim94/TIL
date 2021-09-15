@@ -1,5 +1,19 @@
 # Arry method
 
+```javascript
+let arr = [1, 2, 3, 4, 5];
+
+// 배열 요소에 접근
+console.log(arr[0]); // 1
+console.log(arr[3]); // 4
+
+// 배열 요소의 개수
+console.log(arr.length);
+
+// 배열의 마지막 요소에 접근
+console.log(arr.length - 1); // 4
+```
+
 ### sort
 
     배열을 오름차순, 내림차순으로 정렬한다.
