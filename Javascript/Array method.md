@@ -111,7 +111,9 @@ console.log(arr.reverse()); // [5, 4, 3, 2, 1]
 
 ### map
 
-    함수를 받아 특정 기능을 실행, 새로운 배열을 반환
+    * 함수를 받아 특정 기능을 실행, 새로운 배열을 반환
+
+    * 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환
 
 ```javascript
 const userList = [
@@ -137,6 +139,14 @@ const newUserList = userList.map((user, index) => {
 });
 
 console.log(newUserList);
+```
+
+```javascript
+const arr = [1, 2, 4, 8];
+
+const mapTest = arr.map((x) => x * 2);
+
+console.log(mapTest); // [2, 4, 8, 16]
 ```
 
 ### join
