@@ -35,4 +35,9 @@ function sum(a, b) {
 function sum(a: number, b: number) {
   return a + b;
 }
+sum(5, 10);
+sum(5, "10"); // 숫자만 넣어야함
+
+let name1 = "bong";
+let name2: string = "bong";
 ```
