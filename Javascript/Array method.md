@@ -251,4 +251,13 @@ let add = name.push("choi", "song");
 console.log(name); // ['kim', 'lee', 'park', 'choi', 'song'];
 // add 변수는 추가한 배열의 새 길이 값을 포함
 console.log(add); // 5
+
+const arr = [];
+arr.push("kim");
+arr.push("lee");
+arr.push("park");
+
+console.log(arr); // [ 'kim', 'lee', 'park' ]
+// length는 메서드가 아니다.
+console.log("Total arr :" + arr.length); // 3
 ```

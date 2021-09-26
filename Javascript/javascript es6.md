@@ -198,8 +198,21 @@ for (var i in { a: 1, b: 2 }) {
   console.log(i); // a b
 }
 
+const arr = [1, 2, 3, 4, 5];
+// for (변수 in 오브젝트 또는 배열)
+// 배열의 인덱스가 i에 할당되어 반복
+for (let i in arr) {
+  console.log(i); // 0 1 2 3 4
+}
+
 // es6에는 for of가 도입되었다. 배열에 대한 값을 출력
 for (const a of [1, 2, 3]) {
   console.log(a); // 1 2 3
+}
+
+const arr = [1, 2, 3, 4, 5];
+// for (변수 of 배열)
+for (let i of arr) {
+  console.log(i); // 1 2 3 4 5
 }
 ```
