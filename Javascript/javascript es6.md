@@ -150,7 +150,7 @@ console.log(userAge); // 30
 
   // 객체 리터럴
   const obj = {
-    prop1 = "첫번째 속성값,
+    prop1 = "첫번째 속성값",
     prop2 = "두번째 속성값",
     prop3 = "세번째 속성값",
   }

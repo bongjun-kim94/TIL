@@ -48,7 +48,7 @@
   var name = 'bongjun';
   console.log(name); // bongjun - 선언
 
-  var name = 'bongjun2;
+  var name = 'bongjun2';
   console.log(name); // bongjun2 - 재선언 가능
 
   var name;
