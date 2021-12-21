@@ -4,7 +4,9 @@
     React hook을 사용하면 class component, render 등을 안해도 된다.
 
 ### useState
+
     가장 대표적인 Hook 컴포넌트에 의지하지 않고 state를 가질 수 있게 해줌
+    함수형 컴포넌트에서 가변적인 상태를 지닐 수 있게 해준다. 상태를 관리해야 할 때 사용
 
 ```javascript
 // class component
@@ -12,7 +14,7 @@ class test extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      count: 0,
     };
   }
 
@@ -29,18 +31,56 @@ class test extends React.Component {
 }
 
 // function component
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function test() {
-    const [state, setState] = useState(0);
+  const [state, setState] = useState(0);
 
-    return (
-        <div>
-            <p>{state}</p>
-            <button onClick={() => { setState(state + 1)}}>
-                Click
-            </button>
-        </div>
-    );
+  return (
+    <div>
+      <p>{state}</p>
+      <button
+        onClick={() => {
+          setState(state + 1);
+        }}
+      >
+        Click
+      </button>
+    </div>
+  );
 }
 ```
+
+## useEffect
+
+    리액트 컴포넌트가 렌더릴 될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook이다.
+
+    useEffect를 통해서 함수형 컴포넌트에서 *사이드 이펙트(side effect)를 수행 할 수 있다
+
+    *데이터 가져오기, 구독 설정, 수동으로 DOM 조작 등을 말함
+
+## useReducer
+
+    useState보다 더 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트 해주고 싶을때 사용
+
+```javascript
+// 형태
+function reducer(state, action) {}
+```
+
+## useMemo
+
+    함수형 컴포넌트 내부에서 발생하는 연산을 최적화,
+
+    의존성이 변경되었을 때만 메모이제이션 된 값을 반환한다.
+
+## useCallback
+
+    주로 렌더링 성능을 최적화 해야 하는 상황에서 사용,
+    이벤트 핸들러 함수를 필요할 때만 생성할 수 있다.
+
+## useRef
+
+    함수형 컴포넌트에서 ref를 쉽게 사용할 수 있도록 해준다.
+
+## useContext
