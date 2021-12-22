@@ -59,6 +59,29 @@ function test() {
 
     *데이터 가져오기, 구독 설정, 수동으로 DOM 조작 등을 말함
 
+    기본적으로 React는 매 렌더링 이후에 effects를 실행한다.
+
+```javascript
+import React, { useState, useEffect } from "react";
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // componentDidMount, componentDidUpdate와 비슷합니다
+  useEffect(() => {
+    // 브라우저 API를 이용해 문서의 타이틀을 업데이트합니다
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+```
+
 ## useReducer
 
     useState보다 더 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트 해주고 싶을때 사용
