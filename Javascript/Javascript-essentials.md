@@ -1,3 +1,7 @@
+# typeof 연산자
+    변수의 데이터 타입을 반환하는 연산자
+
+```javascript
 console.log(typeof 'hello'); // string
 console.log(typeof 123); // number
 console.log(typeof true); // boolean
@@ -5,30 +9,41 @@ console.log(typeof undefined); // 의도하지 않은 빈 값, undefined
 console.log(typeof null); // 의도한 빈 값, object
 console.log(typeof {}) // object
 console.log(typeof []) // object
+```
 
-// function getType(data) {
-//   return Object.prototype.toString.call(data).slice(8, -1);
-// }
+```javascript
+function getType(data) {
+  return Object.prototype.toString.call(data).slice(8, -1);
+}
 
 console.log(getType(false)); // Boolean
 console.log(getType(null)); // Null
 console.log(getType({})); // Object
 console.log(getType([])); // Array
+```
 
-// 산술 연산자 (arithmetic operator)
+<br />
 
-console.log(1 + 2);
-console.log(5 - 7);
-console.log(3 * 4);
-console.log(10 / 5);
-console.log(10 % 5);
+# 산술 연산자 (arithmetic operator)
+    사칙연산을 다루는 기본적이면서도 많이 사용되는 연산자
 
-let qq = 2  // = = 할당연산자
+```javascript
+console.log(1 + 2); // 3
+console.log(5 - 7); // -2
+console.log(3 * 4); // 12
+console.log(10 / 5); // 2
+console.log(10 % 5); // 0
+
+let qq = 2  // : = 할당연산자
 qq += 2;
 console.log(qq); // 4
+```
 
-// 비교 연산자 (comparison operator)
+<br />
 
+# 비교 연산자 (comparison operator)
+
+```javascript
 const a = 1;
 const b = 2;
 console.log(a === b); // flase
@@ -42,9 +57,13 @@ function isEqual(x, y) {
 }
 
 console.log(isEqual(1, 1)); // true
+```
 
-// 논리 연산자 (logical operator)
+<br />
 
+# 논리 연산자 (logical operator)
+
+```javascript
 function logical () {
   const a = 1;
   const b = 'AB' === 'AB'
@@ -52,7 +71,7 @@ function logical () {
 
   console.log(a); // 1
   console.log(b); // true
-  console.log(c); // true
+  console.log(c); // false
 
   // and 연산자 : a, b, c 가 전부 true인지 확인해서 전부 true인 경우에만 true 반환
   console.log('&&: ', a && b && b); // true
@@ -63,9 +82,13 @@ function logical () {
 }
 
 logical();
+```
 
-// 삼항 연산자 (ternary operator)
+<br />
 
+# 삼항 연산자 (ternary operator)
+
+```javascript
 function ternary() {
   const a = 1 < 2
 
@@ -79,9 +102,13 @@ function ternary() {
 }
 
 ternary();
+```
 
-// 조건문 (If statement, Switch statement)
+<br />
 
+# 조건문 (If statement, Switch statement)
+
+```javascript
 function ifElse() {
   const a = 2;
 
@@ -114,28 +141,36 @@ function ifElse() {
 }
 
 ifElse();
+```
 
-// 반복문 (For statement)
-// for (시작조건; 종료조건; 변화조건) {}
+<br />
 
-// const ulEl = document.querySelector('ul');
+# 반복문 (For statement)
+```javascript
+for (시작조건; 종료조건; 변화조건) {}
 
-// console.log(ulEl);
+const ulEl = document.querySelector('ul');
 
-// for(let i = 0; i < 10; i += 1) {
-//   const li = document.createElement('li');
-//   li.textContent = `list-${i + 1}`;
-//   // 짝수인 리스트만 출력
-//   if ((i + 1) % 2 === 0) {
-//     li.addEventListener('click', function() {
-//       console.log(li.textContent);
-//     });
-//   } 
-//   ulEl.appendChild(li);
-// }
+console.log(ulEl);
 
-// 변수의 유효범위 (Variable Scope)
-// ver, let, const
+for(let i = 0; i < 10; i += 1) {
+  const li = document.createElement('li');
+  li.textContent = `list-${i + 1}`;
+  // 짝수인 리스트만 출력
+  if ((i + 1) % 2 === 0) {
+    li.addEventListener('click', function() {
+      console.log(li.textContent);
+    });
+  } 
+  ulEl.appendChild(li);
+}
+```
+
+<br />
+
+# 변수의 유효범위 (Variable Scope)
+```javascript
+var, let, const
 
 function scope() {
   if (true) {
@@ -145,10 +180,15 @@ function scope() {
   console.log(a); // a is not defined
 }
 scope()
+```
 
-// 형변환 (Type conversion)
+<br />
 
+# 형변환 (Type conversion)
 
+<br />
+
+```javascript
 // Truthy(참 같은값)
 // true, {}, [], 1, 2, 'false', -12, '3.14 ...
 
@@ -167,8 +207,13 @@ function type() {
   }
 }
 type();
+```
 
-// 함수 복습
+<br />
+
+# 함수 복습
+
+```javascript
 // 함수선언식 - 기명함수
 //          매개변수
 function sum(x, y) {
@@ -180,11 +225,11 @@ sum(1, 3);
 sum(4, 12);
 
 // 함수표현식 - 익명함수
-// const sum = function(x ,y) {
-//   return x + y;
-// }
+const sum = function(x ,y) {
+  return x + y;
+}
 
-// sum(1, 3);
+sum(1, 3);
 
 function sum2() {
   console.log(arguments); // [Arguments] { '0': 7, '1': 3 }
@@ -192,27 +237,35 @@ function sum2() {
 }
 
 console.log(sum2(7, 3));
+```
 
-// 화살표 함수
+<br />
+
+# 화살표 함수
+```javascript
 // () =>  {} vs function() {}
 
 const double = function(x) {
   return x * 2;
 }
-console.log('double: ', double(7)); // 14
+console.log('double: ', double(7)); // double: 14
 
 const doubleArrow = (x) => {
   return x * 2;
 }
+
+console.log('doubleArrow: ', doubleArrow(7)); // doubleArrow: 14
+
 // 축약형
-// const doubleArrow = x => x * 2
+const doubleArrow = x => x * 2
 // 객체데이터는 () - 소괄호 안에 작성해야함
-// const duobleArrow = x => ({ name: 'bongjun'});
-console.log('doubleArrow: ', doubleArrow(7)); // 14
+const duobleArrow = x => ({ name: 'bongjun'});
+```
 
-// 즉시실행함수
-// IIFE, Immediately-Invoked Function Expression
+# 즉시실행함수
+    IIFE, Immediately-Invoked Function Expression
 
+```javascript
 const aa = 7;
 function double2() {
   console.log(aa * 2); // 14
@@ -227,56 +280,68 @@ double2();
 (function () {
   console.log(aa * 2); // 14
 }());
+```
 
-// 호이스팅(Hoisting)
-// 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
+<br />
 
-// const a = 7;
+# 호이스팅(Hoisting)
+    함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
 
-// double();
+```javascript
+const a = 7;
 
-// const double = function () {
-//   console.log(a * 2); // double is not a function
-// }
+double();
 
-// const a = 7;
+const double = function () {
+  console.log(a * 2); // double is not a function
+}
 
-// double();
+const a = 7;
 
-// function double () {
-//   console.log(a * 2); // 14
-// }
+double();
 
-// 타이머 함수
-// setTimeout(함수, 시간): 일정 시간 후 함수실행
-// setInterval(함수, 시간): 시간 간격마다 함수실행
-// clearTimeout(): 설정된 Timeout 함수를 종료
-// clearInterval(): 설정된 Interval 함수를 종료
+function double () {
+  console.log(a * 2); // 14
+}
+```
+
+<br />
+
+# 타이머 함수
+    setTimeout(함수, 시간): 일정 시간 후 함수실행
+    setInterval(함수, 시간): 시간 간격마다 함수실행
+    clearTimeout(): 설정된 Timeout 함수를 종료
+    clearInterval(): 설정된 Interval 함수를 종료
 
 
-//                 단위: ms = 1000ms = 1초
-// const timer = setTimeout(() => {
-//   console.log('Bongjun!');
-// }, 3000);
+```javascript
+// 단위: ms = 1000ms = 1초
+const timer = setTimeout(() => {
+  console.log('Bongjun!');
+}, 3000);
 
 // // h1태그 클릭시 타이머 멈춤
-// const h1El = document.querySelector('h1');
-// h1El.addEventListener('click', () => {
-//   clearTimeout(timer);
-// });
+const h1El = document.querySelector('h1');
+h1El.addEventListener('click', () => {
+  clearTimeout(timer);
+});
 
-// const timer2 = setInterval(() => {
-//   console.log('Bongjun2');
-// });
+const timer2 = setInterval(() => {
+  console.log('Bongjun2');
+});
 
-// const h1El2 = document.querySelector('h1');
-// h1El2.addEventListener('click', () => {
-//   clearTimeout(timer2);
-// });
+const h1El2 = document.querySelector('h1');
+h1El2.addEventListener('click', () => {
+  clearTimeout(timer2);
+});
+```
 
-// 콜백(Callback)
-// 함수의 인수로 사용되는 함수
+<br />
 
+# 콜백(Callback)
+    함수의 인수로 사용되는 함수
+
+```javascript
 function timeout(callback) {
   setTimeout(() => {
     console.log('Bongjun!');
@@ -304,13 +369,16 @@ function user(first, last) {
 
 //                생성자함수
 const bongjunk = new user('Bongjun', 'Kim');
-
 console.log(bongjunk);
+```
 
-// this
-// 일반(Normal) 함수는 호출 위치에서 따라 this 정의!
-// 화살표(Arrow) 함수는 자신이 선언된 함수 범위에서 this 정의!
+<br />
 
+# this
+    일반(Normal) 함수는 호출 위치에서 따라 this 정의!
+    화살표(Arrow) 함수는 자신이 선언된 함수 범위에서 this 정의!
+
+```javascript
 const bongjun = {
   name: 'Bongjun',
   normal: function () {
@@ -331,9 +399,13 @@ const amy = {
 
 amy.normal(); // Amy, 호출 위치에서 정의
 amy.arrow(); // undefined, 화살표 함수가 만들어지는 곳에서 정의
+```
 
-// ES6 Classes
+<br />
 
+# ES6 Classes
+
+```javascript
 class User {
   constructor(first, last) {
     this.firstName = first
@@ -349,31 +421,4 @@ const neo = new User('Neo', 'Smith');
 
 console.log(james); // User { firstName: 'james', lastName: 'kim' }
 console.log(neo.getFullName()); // Neo Smith
-
-
-// Javascript Level up
-
-// JS데이터
-// string: "", '', ``
-// Number
-// Boolean: true, false
-// undefined
-// null
-// Array: []
-// Object: {}
-
-// string.prototype.indexOf();
-// 일치하는 값이 없으면 -1반환
-const result = 'Hello World!'.indexOf('World'); //6
-console.log(result); // 6
-
-const str = 'Hello world!';
-const email = 'bjkim@anidream.co.kr';
-console.log('0123'.length); //4
-console.log(str.length); //12
-console.log(str.indexOf('Bongjun') !== -1); // false
-console.log(str.slice(0, 3)); // Hel = 0번째부터 3번째까지 자름
-console.log(str.replace('world', 'Bongjun')); // Hello Bongjun = 첫번째 인수의 문자를 찾아서 두번째 인수에 해당하는 내용으로 교체
-console.log(str.replace(' world', '')); // Hello!
-console.log(email.match(/.+(?=@)/)[0]); // bjkim - 정규표현식 @ 앞에있는 내용을 모두 추출한다.
-console.log(str.trim()); // 문자 앞 뒤의 공백 제거
+```
