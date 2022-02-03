@@ -179,48 +179,66 @@ console.log(bb); // [ 1, 2 ]
 
 <br />
 
-// find(), findIndex()
+# find(), findIndex()
 
+```javascript
 // 대문자 B로 시작하는 문자데이터
 const aaa = fruits.find(fruit => /^B/.test(fruit));
 console.log(aaa); // Banana
 
 const bbb = fruits.findIndex(fruit => /^C/.test(fruit));
 console.log(bbb); // 2
+```
 
+<br />
 
-// includes()
-// 인수로 사용되는 특정한 데이터가 해당하는 특정 배열에 들어있는지 그렇지 않은지 확인하는 메소드
+# includes()
+    인수로 사용되는 특정한 데이터가 해당하는 특정 배열에 들어있는지 그렇지 않은지 확인하는 메소드
+```javascript
 const c = numbers.includes(3);
 console.log(c); // true
 
 const d = fruits.includes('Bongjun');
 console.log(d); // false
+```
 
-// push(), unshift()
-// 원본 수정됨 주의!
+<br />
 
-// // 배열데이터의 가장 뒤쪽 부분에 데이터가 삽입되어지는 메소드
-// numbers.push(5);
-// console.log(numbers); // [ 1, 2, 3, 4, 5 ]
+# push(), unshift()
+### 원본 수정됨 주의!
 
-// // 배열데이터의 가장 앞 부분에 데이터가 삽입되어지는 메소드
-// numbers.unshift(0);
-// console.log(numbers); // [ 0, 1, 2, 3, 4, 5 ]
+    배열데이터의 가장 뒤쪽 부분에 데이터가 삽입되어지는 메소드
+```javascript
 
-// reverse()
-// 원본 수정됨 주의!
-// 배열데이터를 거꾸로 뒤집어주는 메소드, 배열의 아이템의 순서를 뒤집어내는 용도로 사용
-// numbers.reverse();
-// fruits.reverse();
+numbers.push(5);
+console.log(numbers); // [ 1, 2, 3, 4, 5 ]
 
-// console.log(numbers); // [ 4, 3, 2, 1 ]
-// console.log(fruits); // [ 'Cherry', 'Banana', 'Apple' ]
+// 배열데이터의 가장 앞 부분에 데이터가 삽입되어지는 메소드
+numbers.unshift(0);
+console.log(numbers); // [ 0, 1, 2, 3, 4, 5 ]
+```
 
-// splice()
-// 원본 수정됨 주의!
-// 첫번째 부분은 배열 데이터의 인덱스 값을 집어넣음, 두번째 부분은 인덱스 번호에서 아이템 한개를 지움
-// 단순하게 ~~째 아이템을 지우는 용도, 새로운 아이템을 끼워넣는용도 두가지의 용도
+<br />
+
+# reverse()
+### 원본 수정됨 주의!
+    배열데이터를 거꾸로 뒤집어주는 메소드, 배열의 아이템의 순서를 뒤집어내는 용도로 사용
+```javascript
+numbers.reverse();
+fruits.reverse();
+
+console.log(numbers); // [ 4, 3, 2, 1 ]
+console.log(fruits); // [ 'Cherry', 'Banana', 'Apple' ]
+```
+
+<br />
+
+# splice()
+### 원본 수정됨 주의!
+    첫번째 부분은 배열 데이터의 인덱스 값을 집어넣음, 두번째 부분은 인덱스 번호에서 아이템 한개를 지움
+    단순하게 ~~째 아이템을 지우는 용도, 새로운 아이템을 끼워넣는용도 두가지의 용도
+
+```javascript
 numbers.splice(2, 1);
 console.log(numbers); // [ 1, 2, 4 ]
 
@@ -228,16 +246,21 @@ console.log(numbers); // [ 1, 2, 4 ]
 // 2번에서 아무런 아이템도 지우지않고 999라는 숫자 데이터를 그 자리에 삽입
 numbers.splice(2, 0, 999);
 console.log(numbers); // [ 1, 2, 999, 3, 4 ]
+```
 
-// Object.assign()
-// 객체데이터에서 속성의 이름은 고유해야한다. 새로운 속성의 숫자데이터로 덮어쓰기된다.
-// const target = { a: 1, b: 2 };
-// const source = { b: 3, c: 5 };
-// //                                   대상객체,  출처객체
-// const returnedTarget = Object.assign(target, source);
+<br />
 
-// console.log(target); // { a: 1, b: 3, c: 5 }
-// console.log(returnedTarget); // { a: 1, b: 3, c: 5 }
+# Object.assign()
+    객체데이터에서 속성의 이름은 고유해야한다. 새로운 속성의 숫자데이터로 덮어쓰기된다.
+
+```javascript
+const target = { a: 1, b: 2 };
+const source = { b: 3, c: 5 };
+// //                                대상객체,  출처객체
+const returnedTarget = Object.assign(target, source);
+
+console.log(target); // { a: 1, b: 3, c: 5 }
+console.log(returnedTarget); // { a: 1, b: 3, c: 5 }
 
 // 하나의 객체 데이터는 특정한 메모리 주소에 값이 들어가있다.
 const userAge = {
@@ -249,7 +272,9 @@ const userEmail = {
   name: 'Bongjun',
   email: 'bjkim@anidream.co.kr'
 }
+```
 
+```javascript
 const target = Object.assign(userAge, userEmail);
 console.log(target); // { name: 'Bongjun', age: '29', email: 'bjkim@anidream.co.kr' }
 console.log(userAge); // { name: 'Bongjun', age: '29', email: 'bjkim@anidream.co.kr' }
@@ -266,8 +291,6 @@ const ab = { k: 123 }
 const ba = { k: 123 }
 console.log(ab === ba); // false
 
-
-
 const user = {
   name: 'Bongjun',
   age: 29,
@@ -283,11 +306,13 @@ console.log(user.email); // bjkim@anidream.co.kr
 // user객체에서 각각의 key부분에 있는 값들을 추출해서 그것을 배열로 만들어서 반환
 const values = keys.map(key => user[key]);
 console.log(values); // [ 'Bongjune', 29, 'bjkim@anidream.co.kr' ]
+```
 
+<br />
 
-// 구조 분해 할당 (Destructuring assignment)
-// 비구조화 할당
+# 구조 분해 할당 (Destructuring assignment) <br /> (구조화 할당)
 
+```javascript
 const { name, age, email, adress } = user;
 
 console.log(`사용자의 이름은 ${name}입니다.`); // 사용자의 이름은 Bongjun입니다.
@@ -299,9 +324,12 @@ const fruits2 = ['Apple', 'Banana', 'Cherry'];
 // 구조분해하는 데이터의 타입에 맞게 기호를 사용
 const [q, w, e, r] = fruits2;
 console.log(q, w, e, r); // Apple Banana Cherry undefined
+```
 
-// 전개연산자 (Spread)
+<br />
 
+# 전개연산자 (Spread)
+```javascript
 console.log(fruits2); // [ 'Apple', 'Banana', 'Cherry' ]
 console.log(...fruits2); // Apple Banana Cherry
 
@@ -318,3 +346,152 @@ console.log(toObject(...fruits2));
 
 // console.log(toObject(fruits2[0], fruits2[1], fruits2[2])); // { a: 'Apple', b: 'Banana', c: 'Cherry' }
 // console.log(toObject(...fruits2)); // { a: 'Apple', b: 'Banana', c: 'Cherry' }
+```
+
+<br />
+
+# 데이터 불변성(Immutability)
+```javascript
+원시 데이터 : String, Number, Boolean, undefined, null
+참조형 데이터 : Object, Array, Function
+함수의 인수로 사용되는 또다른 함수를 콜백함수라고함
+
+원시 데이터 - 데이터가 불변하기 때문에 데이터의 생김새가 똑같으면 사실상 같은 데이터라 봐도 충분하다.
+참조형 데이터 - 불변하는 개념이 아니라 선언할때 마다 새로운 메모리 주소에 참조형 데이터들이 할당될 수 있는 구조
+생김새가 같더라도 서로 같은 데이터가 아닐 수 있음, 그래서 한쪽을 수정하면 다른쪽도 수정됨.
+let a = { k: 1 };
+let b = { k: 1 };
+console.log(a, b, a === b); // { k: 1 } { k: 1 } false
+
+// 같은 메모리 주소를 바라보고 있기 때문에 값이 같아짐
+a.k = 7;
+// 할당연산자를 사용했을때, a가 가지고 있는 데이터가 복사되는 개념이 아니고,
+// 단순하게 메모리 주소만 같은 곳으로 바라보게 만들어 줌. 
+// a를 수정해도 b가 수정되고, b를 수정해도 a가 수정된다.
+b = a;
+console.log(a, b, a === b); // { k: 7 } { k: 7 } true
+
+a.k = 2;
+console.log(a, b, a === b); // { k: 2 } { k: 2 } true
+
+let c = b;
+console.log(a, b, c, a === c); // { k: 2 } { k: 2 } { k: 2 } true
+
+a.k = 9;
+console.log(a, b, c, a === c); // { k: 9 } { k: 9 } { k: 9 } true
+```
+
+<br />
+
+# 얕은 복사(Shallow copy), 깊은 복사(Deep copy)
+```js
+`공통사용`
+const users = {
+  name: 'bongjunk',
+  age: 29,
+  emails: ['bjkim@anidream.co.kr']
+}
+```
+---
+```javascript
+CASE 1 - Call By reference(데이터 복사가 아닌 참조)
+`데이터가 그대로 하나 더 생성된 것이 아닌 해당 데이터의 메모리 주소를 전달하게되어,
+결국 한 데이터를 공유하게 되는것`
+
+const copyUsers = users;
+console.log(copyUsers === users); // true
+
+console.log('users', users); // users { name: 'bongjunk', age: 22, emails: [ 'bjkim@anidream.co.kr' ] }
+console.log('copyUsers', copyUsers); // copyUsers { name: 'bongjunk', age: 22, emails: [ 'bjkim@anidream.co.kr' ] }
+```
+
+---
+
+```javascript
+CASE 2
+                            `대상객체, 출처객체`
+const copyUsers = Object.assign({}, users);
+console.log(copyUsers === users); // false
+
+얕은 복사
+const copyUsers = {...users};
+console.log(copyUsers === users); // false
+
+// 같은 데이터를 수정하는것이라 copyUsers에도 영향이감
+users.age = 22;
+console.log('users', users); // users { name: 'bongjunk', age: 22, emails: [ 'bjkim@anidream.co.kr' ] }
+console.log('copyUsers', copyUsers); // copyUsers { name: 'bongjunk', age: 29, emails: [ 'bjkim@anidream.co.kr' ] }
+
+users.emails.push( 'mydlwm_s@naver.com' );
+console.log(users.emails === copyUsers.emails); // true
+
+console.log('users', users); // users { name: 'bongjunk', age: 22, emails: [ 'bjkim@anidream.co.kr', 'mydlwm_s@naver.com' ] }
+console.log('copyUsers', copyUsers); // users { name: 'bongjunk', age: 22, emails: [ 'bjkim@anidream.co.kr', 'mydlwm_s@naver.com' ] }
+```
+---
+```js
+CASE 3 -  lodash를 이용한 깊은 복사
+
+const copyUsers = _.cloneDeep(users);
+console.log(copyUsers === users); // false
+
+let objects = [{ 'a': 1 }, { 'b': 2 }];
+
+let deep = _.cloneDeep(objects);
+console.log(deep[0] === objects[0]); // false
+```
+
+### 정리
+- 객체라던가 배열을 복사할 때는 내부의 또다른 참조데이터가 없다는 전제하에 손쉽게 얕은 복사 사용
+- 특정한 참조데이터 내부에 또다른 참조데이터가 들어가 있다면 깊은 복사를 고려
+
+<br />
+
+# JSON
+    JavaScript Object Notation - 자바스크립트의 데이터로 표현해야하는 하나의 포맷
+
+```js
+const user2 = {
+  name: 'Bongjun',
+  age: 29,
+  emails: [
+    'mydlwm_s@naver.com',
+    'bjkim@anidream.co.kr'
+  ]
+};
+
+console.log('user2', user2);
+// user2 {
+//   name: 'Bongjun',
+//   age: 29,
+//   emails: [ 'mydlwm_s@naver.com', 'bjkim@anidream.co.kr' ]
+// }     
+
+const str2 = JSON.stringify(user2);
+console.log(typeof str2); // string
+
+const obj = JSON.parse(str2);
+console.log('obj', obj);
+// obj {
+//   name: 'Bongjun',
+//   age: 29,
+//   emails: [ 'mydlwm_s@naver.com', 'bjkim@anidream.co.kr' ]
+// }
+```
+
+<br />
+
+# localStorage
+
+```js
+//user2 객체 데이터를 문자데이터화해서 로컬스토리지의 user2라는 이름으로 저장
+localStorage.setItem('user2', JSON.stringify(user2));
+console.log(JSON.parse(localStorage.getItem('user2')));
+localStorage.removeItem('user2');
+
+const str3 = localStorage.getItem('user2');
+const obj = JSON.parse(str3);
+obj.age = 22;
+console.log(obj);
+localStorage.setItem('user2', JSON.stringify(obj));
+```
