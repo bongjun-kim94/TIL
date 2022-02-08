@@ -13,6 +13,16 @@
 - [로컬스토리지, 세션스토리지](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/localStorage%2C%20sessionStorage.md)
 - [배열 메소드(array method)](https://github.com/bongjun-kim94/TIL/blob/main/Javascript/Array%20method.md)
 
+- [자바스크립트 필수](https://github.com/bongjunk/TIL/blob/main/Javascript/Javascript-essentials.md)
+- [자바스크립트 심화](https://github.com/bongjunk/TIL/blob/main/Javascript/Javascript-levelup.md)
+
+
+## TypeScript
+
+- [타입스크립트 필수](https://github.com/bongjunk/TIL/blob/main/Typescript/Typescript.md)
+- [타입스크립트 심화]()
+
 ## React
 
 - [리액트란?](https://github.com/bongjun-kim94/TIL/blob/main/React/210813.md)
+- [리액트 훅]()

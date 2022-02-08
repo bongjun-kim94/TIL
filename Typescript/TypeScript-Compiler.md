@@ -153,17 +153,17 @@ schema
 
 ## compileOptions - typeRoots, types
 
-  ### @types
-  - TypeScript 2.0 부터 사용 가능해진 내장 type definition 시스템
-  - 아무 설정을 안하면?
-    - node_modules/@types 라는 모든 경로를 찾아서 사용
-  - typeRoots를 사용하면?
-    - 배열안에 들어있는 경로들 아래서만 가져옵니다.
-  - types를 사용하면?
-    - 배열 안의 모듈 혹은 ./node_modules/@types/ 안의 모듈 이름에서 찾아옵니다.
-    - [] 빈 배열을 넣는다는건 이 시스템을 이용하지 않겠다는 것입니다.
-    
-  - typeRoots 와 types를 같이 사용하지 않습니다.
+### @types
+- TypeScript 2.0 부터 사용 가능해진 내장 type definition 시스템
+- 아무 설정을 안하면?
+  - node_modules/@types 라는 모든 경로를 찾아서 사용
+- typeRoots를 사용하면?
+  - 배열안에 들어있는 경로들 아래서만 가져옵니다.
+- types를 사용하면?
+  - 배열 안의 모듈 혹은 ./node_modules/@types/ 안의 모듈 이름에서 찾아옵니다.
+  - [] 빈 배열을 넣는다는건 이 시스템을 이용하지 않겠다는 것입니다.
+  
+- typeRoots 와 types를 같이 사용하지 않습니다.
 
 ```
 {
