@@ -54,6 +54,248 @@
     export deafult App;
 ```
 
+## React Getting Started - React Comcept
+
+### Keyword
+- Angular vs React vs Vue
+- View를 다루는 라이브러리
+- Only Rendering & Update - 렌더링과 업데이트만 관련
+  - NOT included another functionality (ex. http client, ...)
+- Component Based Development
+  - 독립적인 코드 블럭(HTMl + CSS + JavaScript)
+  - 작업의 단위
+- Virtual DOM
+  - 이제는 DOM을 직접 다루지 않음
+- JSX
+  - NOT Templates
+  - transpile to JS (Babel, TypeScript) - 순수한 js로 트랜스파일되는 문법
+- CSS & SSR
+
+---
+
+- ## Angular vs React vs Vue
+
+- **Angular** - 풀 프레임워크
+
+    크로스 플랫폼, 어떤 플랫폼에서던지 하나의 코드 베이스로 결과물을 낼 수 있게 도와줌
+    모든 기능이 프레임워크 안에서 하나를 이루고있음
+
+- **view** - 라이브러리 & 프레임워크로도 쓸 수 있다.
+    
+    프로그레시브 JavaScript 프레임워크
+
+- **React** - 라이브러리
+    
+    user interfaces를 만들기 위한 자바스크립트 라이브러리
+
+### Component
+```html
+<!-- HTMLElement -->
+<img src="이미지 주소" />
+<button class="클래스 이름">버튼</button>
+
+<!-- 내가 만든 컴포넌트 -->
+<내가지은이름1 name="Bong" />
+<내가지은이름2 prop={false}>내용</내가지은이름2>
+
+<!-- 
+- src, class, name, props 밖에서 넣어주는 데이터
+- 문서(HTML), 스타일(CSS), 동작(JS)를 합쳐서 내가 만든 일종의 태그 
+-->
+```
+
+### Why Virtual DOM?
+- DOM을 직접 제어하는 경우
+  - 바뀐 부분만 정확히 바꿔야 한다.
+- DOM을 직접 제어하지 않는 경우
+  - 가상의 돔 트리를 사용해서,
+  - 이전 상태화 이후 상태를 비교하여,
+  - 바뀐 부분을 찾아내서 자동으로 바꾼다.
+- State Change => Compute Diff => Re-render
+
+### CSR vs SSR
+- CSR
+  - JS가 전부 다운로드 되어 리액트 애플리케이션이 정상 실행되기 전까지는 화면이 보이지 않음.
+  - JS가 전부 다운로드 되어 리액트 애플리케이션이 정상 실행된 후, 화면이 보이면서 유저가 인터렉션 가능
+
+- SSR
+  - JS가 전부 다운로드 되지 않아도, 일단 화면은 보이지만 유저가 사용할 수 없음.
+  - JS가 전부 다운로드 되어 리액트 애플리케이션이 정상 실행된 후, 유저가 사용가능
+
+### 개발환경
+- Node.js - 개발환경
+  - installer
+  - nvm
+- Browser (Chrome)
+- Git
+- VSCode
+
+### 리액트가 하는 일 - 리액트의 핵심 모듈 2개로 리액트가 하는 일 알아보기
+```js
+// 1. 리액트 컴포넌트 => HTMLElement 연결하기
+import ReactDOM from 'react-dom';
+
+// 2. 리액트 컴포넌트 만들기
+import Reacrt from 'react';
+```
+
+"만들어진 리액트 컴포넌트"를 실제 HTMLElement에 연결할 때 ReactDOM 라이브러리를 이용합니다.
+
+### ~~고전~~ 프론트엔드 - 리액트 이전
+
+    HTML로 문서 구조를 잡고,
+    CSS로 스타일을 입히고,
+    JavaScript로 DOM을 조작합니다.
+
+컴포넌트를 활용한 프론트엔드
+컴포넌트를 정의하고, 실제 DOM에 컴포넌트를 그려준다.
+
+브라우저 지원
+React는 Internet Explorer 9과 상위 버전을 포함한 모든 주요 브라우저를 지원합니다. 그러나 IE 9과 IE 10과 같은 구형 브라우저는 폴리필(polyfill)이 필요합니다.
+
+## React Component
+
+Hooks 이전
+- 컴포넌트 내부에 상태가 있다면?
+  - class
+- 컴포넌트 내부에 상태가 없다면?
+  - 라이프사이클을 사용해야 한다면?
+    - class
+  - 라이프사이클에 관계 없다면?
+    - function
+
+Hooks 이후
+- class
+- function
+
+## JSX
+JSX 문법으로 작성된 코드는 순수한 JavaScript로 컴파일 하여 사용한다.
+누가 해주나요?? => babel
+
+왜 JSX를 쓰나요??
+- React.createElement VS JSX
+  - 가독성 완승
+- babel과 같은 컴파일 과정에서 문법적 오류를 인지하기 쉬움
+
+JSX문법
+- 최상위 요소가 하나여야 합니다.
+- 최상위 요소 리턴하는 경우,()로 감싸야합니다.
+- 자식들을 바로 렌더링 하고 싶으면 <>자식들</>를 사용합니다. => Fragment
+- 자바스크립트 표현식을 사용하려면, {표현식}을 이용합니다.
+- if문은 사용할 수 없습니다.
+  - 삼항 연산자 혹은 &&를 사용합니다.
+- style을 잉요해 인라인 스타일링이 가능합니다.
+- class 대신 className을 사용해 class를 적용할 수 있습니다.
+- 자식요소가 있으면, 꼭 닫아야하고, 자식요소가 없으면 열면서 닫아야 합니다.
+  - <p>어쩌구</p>
+  - `<br />`
+
+Props와 State
+Props는 컴포넌트 외부에서 컴포넌트에게 주는 데이터
+State는 컴포넌트 내부에서 변경할 수 있는 데이터
+둘 다 변경이 발생하면, 렌더가 다시 일어날 수 있습니다.
+
+Render 함수
+Props와 State를 바탕으로 컴포넌트를 그립니다.
+그리고 Props와 State가 변경되면, 컴포넌트를 다시 그립니다.
+컴포넌트를 그리는 방법을 기숭하는 함수가 렌더함수 입니다.
+
+## Event Handling
+- HTML DOM에 클릭하면 이벤트가 발생하고, 발생하면 그에 맞는 변경이 일어나도록 해야합니다.
+- JSX에 이벤트를 설정할 수 있습니다. 
+
+<br />
+
+- camelCase로만 사용할 수 있습니다.
+  - onClick, onMouseEnter
+- 이벤트에 연결된 자바스크립트 코드는 함수입니다.
+  - 이벤트={함수}와 같이 씁니다.
+- 실제 DOM 요소들에만 사용 가능합니다.
+  - 리액트 컴포넌트에 사용하면, 그냥 props로 전달합니다.
+
+```js
+class Comp extends React.Component {
+  render() {
+    return (
+      <>
+        <button onClick={() => {
+          console.log('clicked');
+        }}>
+          클릭
+        </button>
+      </>
+    );
+  }
+}
+```
+
+## Component Lifecycle
+    리액트 컴포넌트는 탄생부터 죽음까지 여러지점에서 개발자가 작업이 가능하도록 
+    메서드를 오버라이딩 할 수 있게 해준다.
+
+### Component 생성 및 마운트 (< v16.3)
+1. constructor
+2. componentWillMount - Mount되기 직전
+3. render(최초렌더) - Mount
+4. componentDidMount - Mount된 직후
+
+### Component props, state 변경 (< v16.3)
+1. componentWillRecieveProps
+2. shouldComponentUpdate
+3. componentWillUpdate
+4. render
+5. componentDidUpdate
+
+
+### componentWillReceiveProps
+- props를 새로 지정했을때 바로 호출됩니다.
+- 여기는 state의 변경에 반응하지 않습니다.
+  - 여기서 props의 값에 따라 state를 변경해야 한다면,
+    - setState를 이용해 state를 변경합니다.
+    - 그러면 다음 이벤트로 각각 가는것이 아니라 한번에 변경됩니다.
+
+### shouldComponentUpdate
+  - props만 변경되어도
+  - state만 변경되어도
+  - props & state 둘다 변경되어도
+  - newProps와 newState를 인자로 해서 호출
+  - return type이 boolean입니다.
+    - true면 render
+    - false면 render가 호출되지 않습니다.
+    - 이 함수를 구현하지 않으면, 디폴트는 true
+
+### componentWillUpdate
+- 컴포넌트가 재 렌더링 되기 직전에 불립니다.
+- 여기선 setState 같은 것을 쓰면 아니됩니다.
+
+### componentDisUpdate
+- 컴포넌트가 재 렌더링을 마치면 불립니다.
+
+### component 언마운트 (< v16.3) (componentWillUnmount)
+
+### Component 라이프사이클 변경 (v16.3)
+- constructor
+- ~~componentWillMount~~ => getDerivedStateFromProps
+- render
+- componentDidMount 
+
+<br />
+
+- ~~componentWillReceiveProps~~ => getDerivedStateFromProps
+- shouldComponentUpdate
+- render
+- ~~componentWillUpdate~~ => getSnapshotBeforeUpdate
+- (dom에 적용)
+- componentDidUpdate
+
+- componentWillUnmount
+
+
+### Component 에러 캐치
+- componentDidCatch
+  - 단점은 자기 자신에게 에러가 있을땐 캐치를 하지못함
+
+
 ---
 
 ### 데이터 바인딩?
