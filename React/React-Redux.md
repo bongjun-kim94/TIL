@@ -118,6 +118,7 @@ const store = createStore(reducer);
 
 - 스토어의 내장함수 중 하나.
 - '액션을 발생시키는 것'
+- action을 store에 전달하는 행위
 - 이 함수가 호출되면 스토어는 리듀서 함수를 실행시켜서 새로운 상태를 만들어 줌
 
 ### 구독
@@ -148,3 +149,53 @@ props로 계속 아래로 전달
 
 - componentDidMount - subscribe
 - componentWillUnmount - unsubscribe -->
+
+## react-redux
+
+- Provider 컴포넌트를 제공해줍니다.
+- connect 함수를 통해 "컨테이너"를 만들어줍니다.
+  - 컨테이너는 스토어의 state와 dispatch(액션)를 연결한 컴포넌트에 props로 넣어주는 역할을 합니다.
+  - 그렇다면 필요한 것은?
+    - 어떤 state를 어떤 props에 연결할 것인지에 대한 정의
+    - 어떤 dispatch(액션)을 어떤 props에 연결할 것인지에 대한 정의
+    - 그 props를 보낼 컴포넌트를 정의
+
+비동기 작업을 어디서 하느냐? 가 제일 중요
+
+- 액션을 분리
+- start
+- success
+- failure
+- ..등등
+- dispatch를 할때 해준다.
+  - 당연히 리듀서는 동기적인것 => pure
+  - dispatch도 동기적인것
+
+## 리덕스 미들웨어
+
+- 미들웨어는 function
+- 미들웨어가 "디스패치"의 앞 뒤에 코드를 추가할수 있게 해줍니다.
+- 미들웨어가 여러개면 미들웨어가 "순차적으로" 실행됩니다.
+- 두 단계가 있다
+  - 스토어를 만들때, 미들웨어를 설정하는 부분
+    - {createStore, applyMiddleware} from redux
+  - 디스패치가 호출될때 실제로 미들웨어를 통과하는 부분
+- dispatch 메소드를 통해 store로 가고있는 액션을 가로채는 코드
+
+## redux-devtools-extension
+
+    npm i redux-devtools-extension -D
+
+## redux-thunk
+
+    npm i redux-thunk
+
+- 리덕스 미들웨어
+- 리덕스를 만든사람이 만듬
+- 리덕스에서 비동기 처리를 위한 라이브러리
+- 액션 생성자를 활용하여 비동기 처리
+- 액션 생상자가 액션을 리턴하지 않고, 함수를 리턴함.
+
+## redux-promise-middleware
+
+    npm i redux-promise-middleware
