@@ -199,3 +199,17 @@ props로 계속 아래로 전달
 ## redux-promise-middleware
 
     npm i redux-promise-middleware
+
+## Redux Advanced
+
+Ducks Pattern
+react-router-dom 과 redux 함께쓰기
+redux-saga
+redux-actions
+
+### Ducks Pattern
+
+1. 항상 reducer()란 이름의 함수를 export default 해야합니다.
+2. 항상 모듈의 action 생성자들을 함수형태로 export 해야합니다.
+3. 항상 npm-module-or-app/reducer/ACTION_TYPE 형태의 action 타입을 가져야합니다.
+4. 어쩌면 action 타입들을 UPPER_SNAKE_CASE로 export 할 수 있습니다. 만약, 외부 reducer가 해당 action들이 발생하는지 계속 기다리거나, 재사용할 수 있는 라이브러리로 퍼블리싱할 경우에 말이죠.
