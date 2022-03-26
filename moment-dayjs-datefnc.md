@@ -10,8 +10,8 @@
 - 현재는 두 가지 이유로 개발이 중단
 - moment는 mutable
 
-    - Moment.js의 용량문제
-    - 너무 오래되어 신규 기능 추가가 어려움
+  - Moment.js의 용량문제
+  - 너무 오래되어 신규 기능 추가가 어려움
 
 - 단점을 극복하기 위해 Day.js, Luxon.js, date-fns.js등 여러 라이브러리가 개발되었다.
 
@@ -24,9 +24,7 @@
 dayjs();
 ```
 
-dd
 # date.fns
+
 - 함수 단위로 라이브러리가 구성되어 있다.
 - date-fns는 immutable
-
-test
