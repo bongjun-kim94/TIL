@@ -38,3 +38,12 @@
 - 기본적으로 양식이 비어 있더라도 초기 값으로 모든 필드를 초기화해야 합니다. 그렇지 않으면 React에서 입력을 제어되지 않음에서 제어됨으로 변경했다는 오류가 발생합니다.
 
 - validate소품은 우리가 검증 규칙을 지정할 수 있습니다.
+
+
+## validationSchema
+
+-validationSchema prop는 Yup schema를 사용하여 보다 쉽고 편하게 유효성 검사를 수행할 수 있다.
+
+- 이 옵션은 Yup의 유효성 검사 오류 메세지를 키가 values / initialValues / touched와 일치하는 객체로 자동 변환 됩니다.
+
+
