@@ -1,5 +1,7 @@
 # GraphQl
 
+    GraphQL은 웹 클라이언트가 데이터를 질의하는데에 최적화된 일종의 인터페이스이자 쿼리 언어입니다.
+
 ## Rest API vs GraphQl
 
 ```js
@@ -61,3 +63,7 @@ npm i qraphql
 
 - Schema에 해당하는 구현을 하는 곳
 - 요청을 받아 데이터를 조회, 수정, 삭제하는 로직을 작성하는 곳
+
+### GraphQl code generator?
+
+    *.graphql 의 파일에 존재하는 스키마와 쿼리를 바탕으로, 다양한 언어에 맞게 타입, 혹은 코드 자체를 생성해줍니다.
