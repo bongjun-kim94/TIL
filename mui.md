@@ -1,4 +1,15 @@
 # MUI
+    부트스트랩, antd와 같이 빠르고 쉽게 웹 개발을 위한 웹 디자인 CSS를 도와주는 프레임워크이다. 
+
+
+```js
+// with npm
+npm install @mui/material @emotion/react @emotion/styled
+
+// with yarn
+yarn add @mui/material @emotion/react @emotion/styled
+```
+- MUI 링크 : https://mui.com/
 
 ```ts
 xs (extra-small) : 0px ~ 600px
