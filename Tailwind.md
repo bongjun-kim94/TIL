@@ -10,3 +10,11 @@
 
 - 빠르고 유연하며 안정적이며 런타임이 없습니다.
 
+### react-slick
+
+    npm install react-slick --save
+    npm install slick-carousel --save
+
+- slick에서 제공해주는 css를 사용하기 위해 import 해준다.
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css;
