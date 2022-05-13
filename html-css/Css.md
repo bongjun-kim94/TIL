@@ -896,9 +896,23 @@ div {
 - animation-duration : 애니메이션을 완료하는데 걸리는 시간, 기본값 0초
 - animation-delay : 애니메이션 시작에 대한 지연을 지정, 음수 값을 사용하면 애니메이션이 N초 동안 이미 재생된 것처럼 시작
 - animation-iteration-count : 애니메이션이 실행되어야 하는 횟수를 지정
-- animation-direction
-- animation-timing-function
-- animation-fill-mode
+- animation-direction : 애니메이션을 앞으로, 뒤로 또는 번갈아 재생 여부 지정
+  - normal : 애니메이션은 정상적으로 재생, 기본값
+  - reverse : 애니메이션이 역방향으로 재생
+  - alternate : 애니메이션이 먼저 앞으로 재생된 다음 뒤로 재생
+  - alternate-reverse : 애니메이션이 먼저 뒤로 재생된 다음 앞으로 재생
+- animation-timing-function : 애니메이션의 속도 곡선을 지정
+  - ease : 느린 시작, 빠른 시작, 느린 종료로 전환 효과를 지정
+  - linear : 처음부터 끝까지 동일한 속도로 전환 효과를 지정
+  - ease-in : 느린 시작으로 전환 효과를 지정
+  - ease-out : 느린 끝으로 전환 효과를 지정
+  - ease-in-out : 느린 시작과 끝으로 전환 효과를 지정
+  - cubic-bezier(n,n,n,n) : 3차 베지어 함수에서 교유한 값을 정의
+- animation-fill-mode : 애니메이션은 첫 번째 키프레임이 재생되기 전이나 마지막 키프레임이 재생된 후에 요소에 영향을 주지 않습니다. 하지만 이 속성은 이 동작을 재정의 할 수 있다.
+  - none : 기본값, 애니메이션은 실행 전후에 요소에 스타일을 적용하지 않음
+  - forwards : 요소는 마지막 키프레임에 의해 설정된 스타일 값을 유지
+  - backwards : 요소는 첫 번째 키프레임에 의해 설정된 스타일 값(방향에 따라 다름)을 가져오고 진행 시간동안 값을 유지
+  - both : 애니메이션은 앞뒤 모두에 대한 규칙을 따르며 애니메이션 속성을 양방향으로 확장
 - animation
 
 ```css
@@ -906,7 +920,7 @@ div {
   from { /* 0% 시작 */
     background-color: red;
   }
-  to /* 100% 완료 */
+  to { /* 100% 완료 */
     background-color: green;
   }
 }
@@ -950,6 +964,94 @@ div {
   /* 애니메이션이 영원히 계속됨 */
   animation-iteration-count: infinite;
 }
+
+/* animation-direction */
+div {
+  /* 애니메이션을 역방향으로 실행 */
+  animation-direction: reverse;
+  /* 애니메이션을 먼저 앞으로 실행한 다음 뒤로 실행 */
+  animation-direction: alternate;
+  /* 애니메이션을 먼저 뒤로 실행한 다음 앞으로 실행 */
+  animation-direction: alternate-reverse;
+}
+
+/* animation-timing-function */
+.div1 {animation-timing-function: linear;}
+.div2 {animation-timing-function: ease;}
+.div3 {animation-timing-function: ease-in;}
+.div4 {animation-timing-function: ease-out;}
+.div5 {animation-timing-function: ease-in-out;}
+
+/* animation-fill-mode */
+div {
+  animation-name: example;
+  animation-duration: 2s;
+  /* 애니메이션이 끝날 때 <div> 요소가 마지막 키프레임의 스타일 값을 유지하도록 함 */
+  animation-fill-mode : forwards;
+  /* 애니메이션이 시작되기 전(애니메이션 지연기간) 첫 번째 키프레임에 의해 설정된 스타일 값을 <div> 요소가 가져오도록 함 */
+  animation-fill-mode : backwards;
+}
+
+/* animation shorthand */
+div {
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+div {
+  animation: example 5s; linear 2s infinite alternate;
+}
+
+```
+
+## Tooltip
+
+- 툴팁은 사용자가 요소 위로 마우스 포인터를 이동할 때 무언가에 대한 추가 정보를 지정하는데 자주 사용됨
+
+```html
+<style>
+  /* Tooltip Container */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  /* Tooltip Text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+
+    position: absolute;
+    z-index: 1;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+</style>
+
+<!-- 
+  HTML
+  · 컨테이너 요소 <div>를 사용하고, tooltip 클래스를 추가, 사용자가 이 <div>위에 마우스를 올리면 툴팁 텍스트가 표시됩니다. 
+  · tooltip text는 <span>을 사용하여, 인라인 요소 안에 배치
+-->
+
+<div>
+  <div class="tooltip">
+    Hover over me
+    <span class="tooltiptext">Tooltip text</span>
+  </div>
+</div>
 ```
 
 출처 : [https://www.w3schools.com/css/]
