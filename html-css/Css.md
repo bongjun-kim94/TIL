@@ -333,6 +333,15 @@ span {
   - 절대 위치 요소에 위치 지정 요소가 없으면, 문서 본문을 사용, 페이지 스크롤과 함께 이동
   - 절대 위치 요소는 일반 흐름에서 제거되며, 요소와 겹칠 수 있음
 - sticky(끈끈한)
+  - position: sticky; : 고정 요소는 스크롤 위치에 따라 상대 요소와 고정 요소 사이를 전환
+  - 주어진 오프셋 우치가 뷰포트에서 만날 때까지 상대적으로 배치된 다음 제자리에 '고정'
+
+```css
+ul {
+  position: sticky;
+  top: 0;
+}
+```
 
 ## Z-Index
 
@@ -366,3 +375,581 @@ img {
   float: inherit;
 }
 ```
+
+- float으로 컨텐츠를 띄워 붙이고 width 값을 100%/n(개수) 만큼 주면 동일한 간격으로 정렬됨
+- ex) 4개 = 25%, 5개 = 20%, 6개 = 16.66%
+
+## Center Align
+
+- margin: auto;
+  - 블록요소 (예: `<div>`)를 가로로 가운데에 맞출때 사용
+
+```css
+.center {
+  margin: auto;
+  width: 50%;
+  border: 1px solid black;
+  padding: 5px;
+}
+```
+
+- text-align: center;
+  - 요소 내부의 텍스트 가운데 정렬
+
+```css
+.center {
+  text-align: center;
+  border: 1px solid black;
+}
+```
+
+- margin: 0 auto;
+  - 이미지를 가운데에 맞추려면 왼쪽 및 오른쪽 여백을 auto로 설정하고, block 요소로 만듬
+
+```css
+img {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+```
+
+- position: absolute;
+  - 요소를 정렬하는 방법
+
+```css
+.right {
+  position: absolute;
+  right: 0px;
+  width: 200px;
+  border: 1px solid black;
+  padding: 5px;
+}
+```
+
+- float
+  - 요소를 정렬하는 방법
+
+```css
+.right {
+  float: right;
+  width: 200px;
+  border: 1px solid black;
+  padding: 5px;
+}
+```
+
+- Clearfix Hack
+  - 요소가 포함된 요소보다 크고 떠있는 경우 컨테이너 외부에서 오버플로된다.
+
+```css
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+```
+
+- Padding + text-align: center;
+  - 수직과 수평 가운데 맞춤
+
+```css
+.center {
+  padding: 50px 0;
+  border: 1px solid black;
+  text-align: center;
+}
+```
+
+- Line-Height
+  - height 속성과 line-height 속성을 동일한 값으로 사용
+
+```css
+.center {
+  line-height: 100px;
+  height: 100px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+/* 텍스트가 여러 줄일 경우 */
+.center p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+```
+
+- Flexbox
+  - 수직 중앙 정렬, IE10 및 이전 버전에서 지원되지 않음
+
+```css
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  border: 1px solid black;
+}
+```
+
+## Combinators
+
+- 결합자는 선택자 간의 관계를 설명한다.
+  - 자손 선택자 (공백): 지정된 요소의 자손인 모든 요소와 일치
+  - 자식 선택자 (>): 지정된 요소의 자식인 모든 요소를 선택
+  - 인접한 형제 선택자(+): 다른 특정 요소 바로 뒤에 있는 요소를 선택, 형제 요소는 동일한 부모 요소를 가져야함
+  - 일반 형제 선택자(~): 지정된 요소의 다음 형제인 모든 요소를 선택
+
+```css
+/* 자손선택자 */
+div p {
+  background-color: red;
+}
+
+<div>
+  <p>test text</p>
+</div>
+
+/* 자식 선택자 */
+div > p {
+  background-color: red;
+}
+
+<div>
+  <p>test text</p>
+  /* css 적용안됨 */
+  <section>
+    <p>test text2</p>
+  </section>
+</div>
+
+/* 인접 형제 선택자 */
+div + p {
+  background-color: red;
+}
+
+<div>
+  <p>test text</p>
+  <p>test text</p>
+</div>
+<p>test text</p> /* red */
+<div>
+  <p>test text</p>
+  <p>test text</p>
+</div>
+<p>test text</p> /* red */
+
+/* 일반 형태 선택자 */
+div ~ p {
+  background-color: red;
+}
+
+<div>
+  <p>test text</p>
+  <p>test text</p>
+</div>
+<p>test text</p> /* red */
+<span>test text</span>
+<p>test text</p> /* red */
+```
+
+## Attributes Selectors
+
+- attribute 선택자 : [attribute] 선택자는 지정된 속성을 가진 요소를 선택하는데 사용
+
+```html
+<style>
+  /* 대상 속성이 있는 모든 <a> 요소를 선택 */
+  a[target] {
+    background-color: red;
+  }
+</style>
+
+<a href="https://www.google.com">google</a>
+<!-- red -->
+<a href="https://www.google.com" target="_blanc">google</a>
+<!-- red -->
+<a href="https://www.google.com" target="_top">google</a>
+```
+
+- attribute="value" 선택자 : [attribute="value"] 선택자는 지정된 속성과 값을 가진 요소를 선택하는데 사용
+
+```html
+<style>
+  a[target="_blank"] {
+    background-color: red;
+  }
+</style>
+
+<a href="https://www.google.com">google</a>
+<!-- red -->
+<a href="https://www.google.com" target="_blanc">google</a>
+<a href="https://www.google.com" target="_top">google</a>
+```
+
+- attribute~="value" 선택자 : [attribute~="value"] 선택자는 지정된 단어를 포함하는 속성 값을 가진 요소를 선택하는데 사용
+
+```html
+<style>
+  [title~="flower"] {
+    border: 1px solid black;
+  }
+</style>
+
+<!-- black -->
+<img src="images/test.png" title="flower" width="200" height="150" />
+<img src="images/test2.png" title="Dog" width="300" height="200" />
+```
+
+- attribute|="value" 선택자 : [attribute |= "value"] 선택자는 지정된 속성이 있는 요소를 선택하는데 사용
+
+```html
+<style>
+  [class|="top"] {
+    background-color: red;
+  }
+</style>
+
+<!-- red -->
+<h2 class="top-header">Hello</h2>
+<p class="topText">World!</p>
+<p class="topContent">Last Text</p>
+```
+
+- attribute^="value" 선택자 : [attribute^="value"] 선택자는 값이 지정된 값으로 시작하는 지정된 속성을 가진 요소를 선택하는데 사용
+
+```html
+<style>
+  [class^="top"] {
+    background-color: red;
+  }
+</style>
+
+<!-- red -->
+<h2 class="top-header">Hello</h2>
+<!-- red -->
+<p class="topText">World!</p>
+<!-- red -->
+<p class="topContent">Last Text</p>
+```
+
+- attribute$="value" 선택자 : [attribute$="value"] 선택자는 속성값이 지정된 값으로 끝나는 요소를 선택하는데 사용
+
+```html
+<style>
+  [class$="test"] {
+    background-color: red;
+  }
+</style>
+
+<!-- red -->
+<div class="first_test">First Div</div>
+<div class="second">Second Div</div>
+<!-- red -->
+<div class="last-test">Last Div</div>
+<!-- red -->
+<p class="ptest">First P Tag</p>
+```
+
+- attribute*="value" 선택자 : [attribute*="value"] 선택자는 속성 값에 지정된 값이 포함된 요소를 선택하는데 사용
+
+```html
+<style>
+  [class*="test"] {
+    background-color: red;
+  }
+</style>
+
+<!-- red -->
+<div class="first_test">First Div</div>
+<div class="second">Second Div</div>
+<!-- red -->
+<div class="last-test">Last Div</div>
+<!-- red -->
+<p class="ptest">First P Tag</p>
+```
+
+```css
+/* styling example */
+input[type="text"] {
+  width: 200px;
+  display: block;
+  background-color: red;
+}
+
+input[type="button"] {
+  width: 300px;
+  display: block;
+  margin-left: 20px;
+}
+```
+
+## Text Effects
+
+- text-overflow : 표시되지 않는 오버플로 컨텐츠가 사용자에게 어떻게 보여져야 하는지를 지정
+- word-wrap : 긴 단어를 줄 바꿈 할 수 있다.
+- word-break : 줄 바꿈 규칙을 지정
+- writing-mode : 텍스트 줄을 가로로 배치할지 세로로 배치할지 지정
+
+```css
+/* text-overflow */
+p.test1 {
+  white-space: nowrap;
+  width: 150px;
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: clip; /* default */
+}
+
+p.test2 {
+  white-space: nowrap;
+  width: 150px;
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 마지막에 ···표시 */
+}
+
+/* word-wrap */
+p {
+  word-wrap: break-word;
+}
+
+/* word-break */
+p.test1 {
+  word-break: keep-all;
+}
+
+p.test2 {
+  word-break: break-all;
+}
+
+/* writing-mode */
+p.test1 {
+  writing-mode: horizontal-tb;
+}
+
+span.text2 {
+  writing-mode: vertical-rl;
+}
+
+p.test2 {
+  writing-mode: vertical-rl;
+}
+```
+
+## 2D Transforms
+
+- transform
+  - translate() : 현재 위치에서 요소를 이동합니다 (X축 및 Y축에 대해)
+  - rotate(): 주어진 각도에 따라 요소를 시계 뱡향 또는 역방향으로 회전
+  - scale(): 요소의 크기를 늘리거나 줄인다.
+  - scaleX(): 요소의 너비를 늘이거나 줄인다.
+  - scaleY(): 요소의 높이를 높이거나 낮춘다.
+  - skewX(): 지정된 각도만큼 X축을 따라 요소를 기울임
+  - skewY(): 지정된 각도만큼 Y축을 따라 요소를 기울임
+  - skew(): 지정된 각도만큼 X및 Y축을 따라 요소를 기울임
+  - matrix(): 모든 2D변환 방법을 하나로 결합
+    - 매개변수 : matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+
+```css
+/* translate() */
+div {
+  /* 오른쪽으로 100px 아래로 100px 이동 */
+  transform: translate(100px, 100px);
+}
+
+/* rotate() */
+div {
+  /* 시계 방향으로 30도 회전 */
+  transform: rotate(30deg);
+  /* 시계 반대 방향으로 50도 회전 */
+  transform: rotate(-50deg);
+}
+
+/* scale() */
+div {
+  /* div 요소를 원래 크기의 가로 2배, 높이 3배로 늘린다   */
+  transform: scale(2, 3);
+  /* div 요소를 우너래 너비와 높이의 절반으로 줄인다 */
+  transform: scale(0.5, 0.5);
+}
+
+/* scaleX() */
+div {
+  /* 원래 너비의 2배 */
+  transform: scaleX(2);
+  /* 원래 너비의 절반 */
+  transform: scaleX(0.5);
+}
+
+/* scaleY() */
+div {
+  /* 원래 높이의 2배 */
+  transform: scaleY(2);
+  /* 원래 높이의 절반 */
+  transform: scaleY(0.5);
+}
+
+/* skewX() */
+div {
+  /* X축을 따라 20도 기울임 */
+  transform: skewX(20deg);
+}
+
+div {
+  /* Y축을 따라 20도 기울임 */
+  transform: skewY(20deg);
+}
+
+/* skew() */
+div {
+  /* X축을 따라 20도, Y축을 따라 30도 기울임 */
+  transform: skew(20deg, 30deg);
+  /* 두번째 매개변수를 지정하지 않으면 값이 0, X축을 따라 요소를 20도 기울임 */
+  transform: skew(20deg);
+}
+
+/* matrix() */
+div {
+  transform: matrix(1, -0.3, 0, 1, 50, 100);
+}
+```
+
+## 3D Transforms
+
+- transform
+  - rotateX() : X축을 중심으로 요소를 지정된 각도로 회전
+  - rotateY() : Y축을 중심으로 요소를 지정된 각도로 회전
+  - rotateZ() : Z축을 중심으로 요소를 지정된 각도로 회전
+
+```css
+.myDiv {
+  /* X축을 중심으로 100도 회전 */
+  transform: rotateX(100deg);
+  /* Y축을 중심으로 100도 회전 */
+  transform: rotateY(100deg);
+  /* Z축을 중심으로 100도 회전 */
+  transform: rotateZ(100deg);
+}
+```
+
+## Transitions
+
+    전환 효과를 만드려면 다음 두 가지를 지정해야 한다.
+    · 효과 추가 CSS 속성
+    · 효과 지속 시간
+
+- transition : CSS 전환을 사용하면 주어진 기간 동안 속성 값을 부드럽게 변경
+- transition-delay : 전환 효과에 대한 초를 지정
+- transition-duration : transition이 끝날 때까지 걸리는 시간
+- transition-property : transition이 적용될 속성을 정함
+- transition-timing-function
+  - ease : 느린 시작, 빠른 시작, 느린 종료로 전환 효과를 지정
+  - linear : 처음부터 끝까지 동일한 속도로 전환 효과를 지정
+  - ease-in : 느린 시작으로 전환 효과를 지정
+  - ease-out : 느린 끝으로 전환 효과를 지정
+  - ease-in-out : 느린 시작과 끝으로 전환 효과를 지정
+  - cubic-bezier(n,n,n,n) : 3차 베지어 함수에서 교유한 값을 정의
+
+```css
+/* transition */
+div {
+  transition: width 2s, height 4s;
+}
+
+/* transition-timing-function */
+.div1 {
+  transition-timing-function: linear;
+}
+.div2 {
+  transition-timing-function: ease;
+}
+.div3 {
+  transition-timing-function: ease-in;
+}
+.div4 {
+  transition-timing-function: ease-out;
+}
+.div5 {
+  transition-timing-function: ease-in-out;
+}
+
+/* transition-delay */
+div {
+  /* 시작하기 전에 1초의 지연 */
+  transition-delay: 1s;
+}
+
+/* transition + transformation */
+div {
+  transition: width 1s, height 1s, transform 1;
+}
+```
+
+## CSS Animations
+
+    애니메이션을 사용하면 요소를 한 스타일에서 다른 스타일로 점진적으로 변경할 수 있다.
+
+- @keyframes : 애니메이션이 특정 시간에 현재 스타일에서 새 스타일로 점차 변경됨
+- animation-name
+- animation-duration : 애니메이션을 완료하는데 걸리는 시간, 기본값 0초
+- animation-delay : 애니메이션 시작에 대한 지연을 지정, 음수 값을 사용하면 애니메이션이 N초 동안 이미 재생된 것처럼 시작
+- animation-iteration-count : 애니메이션이 실행되어야 하는 횟수를 지정
+- animation-direction
+- animation-timing-function
+- animation-fill-mode
+- animation
+
+```css
+@keyframes example {
+  from { /* 0% 시작 */
+    background-color: red;
+  }
+  to /* 100% 완료 */
+    background-color: green;
+  }
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+@keyframes example {
+  0% {background-color: red; left: 0px; top: 0px;}
+  25% {background-color: green; left: 100px; top: 0px;}
+  50% {background-color: blue; left: 200px; top: 100px;}
+  75% {background-color: yellow; left: 100px; top: 0px;}
+  100% {background-color: skyblue; left: 0px; top: 0px;}
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+/* animation-delay */
+div {
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+/* animation-iteration-count */
+div {
+  /* 애니메이션이 중지되기 전에 애니메이션을 3번 실행 */
+  animation-iteration-count: 3;
+  /* 애니메이션이 영원히 계속됨 */
+  animation-iteration-count: infinite;
+}
+```
+
+출처 : [https://www.w3schools.com/css/]
