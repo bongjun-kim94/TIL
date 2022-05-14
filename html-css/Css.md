@@ -480,8 +480,17 @@ img {
 }
 ```
 
-- Flexbox
-  - 수직 중앙 정렬, IE10 및 이전 버전에서 지원되지 않음
+## Flexbox
+
+- 수직 중앙 정렬, IE10 및 이전 버전에서 지원되지 않음
+- 인터페이스 내의 아이템 간 공간 배분과 강력한 정렬 기능을 제공하기 위한 1차원 레이아웃 모델로 설계되었다.
+- justify-content : 주축을 따라 flex 항목 행을 정렬하는 방식을 지정
+  - flex-start: 초기값
+  - flex-end : flex 항목 행의 마지막 항목이 flex 컨테이너의 끝선에서 정렬됨
+  - center : flex 항목들이 flex 항목 행의 가운데 정렬
+  - space-around : 시작선 및 끝선과 flex 항목간 공간도 균등 배분에 고려하므로 시작선 및 끝선과 flex 항목 간의 공간의 크기를 1로 배분한다면 flex 항목 사이의 공간은 2로 배분합니다.
+  - space-between : 주축 방향 여유 공간을 flex 항목 사이의 공간에 균등배분
+  - space-evenly : 여유 공간을 flex 항목 사이의 공간 및 시작선 및 끝선과 flex 항목 간의 공간에 모두 균등하게 배분
 
 ```css
 .center {
@@ -492,6 +501,25 @@ img {
   border: 1px solid black;
 }
 ```
+
+- flex-basis 속성
+  - 항목의 크기를 결정한다. 기본값은 auto, 항목이 크기를 갖고 있는지 확인하고, 항목의 크기가 100px 이면 flex-basis 값으로 100px이 사용됨
+  - flex 항목에 크기가 지정되어 있지 않으면, flex 항목의 내용물 크기가 flex-basis 값으로 사용됨, 따라서 flex 컨테이너에서 `display: flex;` 속성만을 지정하면 flex 항목들이 각 내용물 크기만큼 공간을 차지함
+- flex-grow 속성
+  - flex-grow 값을 양수로 지정하면 flex 항목별로 주축 방향 크기가 flex-basis 값 이상으로 늘어날 수 있게 됩니다.
+  - 모든 항목의 flex-grow 값을 1로 지정하면 사용가능한 공간은 각 항목에게 동일하게 분배되며, 각 항목은 주축을 따라 분배받은 값만큼 사이즈를 늘려 공간을 차지
+- flex-shrink 속성
+  - flex-grow 속성이 주축에서 남는 공간을 항목들에게 분배하는 방법을 결정한다면, flex-shrink 속성은 주축의 공간이 부족할때 각 항목의 사이즈를 줄이는 방법을 정의
+  - flex-grow, flex-shrink의 값은 비율이다. flex 항목의 flex 속성을 모두 1 1 200px로 지정하고, 한 항목만 크기가 늘어나는 비율을 타 항목의 두배로 하고 싶으면 해당 flex 항목의 flex 속성을 2 1 200px 지정하면 된다.
+- 축약형 속성 flex
+  - 보통은 flex-grow, flex-shrink, flex-basis값을 각각 사용하지 않고, 세 속성을 한번에 지정하는 flex 축약형을 많이사용
+  - flex-grow, flex-shrink, flex-basis 순서로 지정됨
+  - flex 축약형 표현에 사용할 수 있는 미리 정의된 축약 값
+    - flex: initial : flex: 0 1 auto 로 지정한 것과 동일
+    - flex: auto : flex: 1 1 auto 로 지정한 것과 동일, flex: initial 과는 주축 방향 여유 공간이 있을때 flex 항목들이 늘어나서 주축 방향 여유 공간을 채우는 점만 다름
+    - flex: none : flex: 0 0 auto 으로 지정한 것과 동일, flex 컨테이너 크기 변화에도 flex 항목 크기는 변하지 않고 flex-basis를 auto로 지정했을때 정해지는 크기로 결정됨
+    - flex: `<positive-number>`
+  - 이 축약형은 더 축약해서 flex: 1 이나, flex: 2 처럼 쓸 수도 있는데, 이는 flex-grow만 지정하고 나머지는 1 0 으로 사용한다는 뜻. 따라서 flex: 2는 flex: 2 1 0와 동일하게 처리됨
 
 ## Combinators
 
