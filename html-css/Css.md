@@ -1082,4 +1082,178 @@ div {
 </div>
 ```
 
+### Styling Images
+
+- border-radius 속성을 이용하여 둥근 이미지
+
+```css
+img {
+  border-radius: 8px;
+  border-radius: 50%;
+}
+```
+
+- 이미지를 축소해야 하는경우 축소하되 원래 크기보다 확대하지 않으려면 height 속성 추가
+
+```css
+img {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+- 이미지를 중앙에 정렬하려면 여백을 설정하고 block 요소로 만듬
+
+```css
+img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+```
+
+- Transparent Image
+
+```css
+img {
+  /* opacity 속성은 0.0 ~ 1.0 사이의 값을 가질 수 있다. 값이 낮을수록 더 투명해짐 */
+  opacity: 0.5;
+}
+```
+
+- Filter 속성은 요소에 시각적 효과(예: 흐림 및 채도)를 추가
+
+```css
+.blur {
+  filter: blur(4px);
+}
+.brightness {
+  filter: brightness(100%);
+}
+.contrast {
+  filter: contrast(100%);
+}
+.grayscale {
+  filter: grayscale(180deg);
+}
+.huerotate {
+  filter: hue-rotate(180deg);
+}
+.invert {
+  filter: invert(100%);
+}
+.opacity {
+  filter: opacity(50%);
+}
+.saturate {
+  filter: saturate(7);
+}
+.sepia {
+  filter: sepia(100%);
+}
+.shadow {
+  filter: drop-shadow(8px 8px 10px green);
+}
+```
+
+- Flip an Image
+
+```css
+img: hover {
+  transform: scaleX(-1);
+}
+```
+
+- Image Reflections
+  - box-reflect 속성은 이미지 반사를 만드는 데 사용됨
+  - 속성값은 `below`, `above`, `left`, `right`
+
+```css
+img {
+  /* 이미지 아래에 반사 */
+  -webkit-box-reflect: below;
+  /* 이미지 오른쪽에 반사 */
+  -webkit-box-reflect: right;
+  /* 이미지 위쪽에 20px 오프셋을 사용하여 반사 */
+  -webkit-box-reflect: above 20px;
+}
+```
+
+- Object-fit Property
+  - obejct-fit 속성은 컨테이너에 맞게 `<img>` 또는 `<video>` 크기를 조정하는 방법을 지정하는데 사용됨
+
+```css
+img {
+  /* 기본값. 이미지는 주어진 치수를 채우도록 크기가 조정 */
+  object-fit: fill;
+  /* 이미지는 종횡비를 유지하지만 주어진 치수에 맞게 크게가 조정 */
+  object-fit: contain;
+  /* 이미지는 종횡비를 유지하고 주어진 치수를 채움. 이미지에 맞게 잘린다 */
+  object-fit: cover;
+  /* 이미지의 크기가 조정되지 않는다. */
+  object-fit: none;
+  /* 이미지가 가장 작은 버전 none 또는 contain */
+  object-fit: scale-down;
+}
+```
+
+- Masking
+
+  - mask-image 속성은 마스크 레이어 이미지를 지정
+  - mask layer image는 PNG이미지, SVG이미지, CSS 그라디언트 또는 SVG`<mask>` 요소일 수 있습니다.
+
+  - Browser Support(브라우저 지원)
+    - 대부분의 브라우저는 CSS 마스킹을 부분적으로만 지원, 그래서 표준 속성 외에 -webkit- 접두사를 사용해야함
+
+```css
+.mask {
+  -webkit-mask-image: url(w31ogo.png);
+  mask-image: url(w31ogo.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  /* 선형 그라디언트를 마스크 레이어로 사용 */
+  -webkit-mask-image: linear-gradient(black, transparent);
+  mask-image: linear-gradient(black, transparent);
+
+  -webkit-mask-image: radial-gradient(
+    circle,
+    black 50%,
+    rgba(0, 0, 0, 0.5) 50%
+  );
+  mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 50%);
+}
+```
+
+- Multiple Columns
+  - multi-column layout을 사용하면 신문에서와 같이 여러 열의 텍스트를 쉽게 정의할 수 있다.
+  - column-count
+  - column-gap
+  - column-rule-style
+  - column-rule-width
+  - column-rule
+  - column-span
+  - column-width
+
+```css
+div {
+  /* 요소의 텍스트를 3개의 열로 나눔 */
+  column-count: 3;
+  /* 열 사이의 간격 */
+  column-gap: 30px;
+  /* 열 사이의 선 스타일을 지정 */
+  column-rule-style: solid;
+  /* 열 사이의 선 너비를 지정 */
+  column-rule-width: 3px;
+  /* 열 사이의 규칙 색상을 지정 */
+  column-rule-color: lightblue;
+  /* 모든 column-rule-* 속성을 설정하기 위한 약식 속성 */
+  column-rule: 3px solid lightblue;
+  /* 요소가 가로질러야 하는 열의 수 지정 */
+  column-span: all;
+  /* 열에 대해 제안된 최적의 너비를 지정 */
+  column-width: 100px;
+}
+```
+
 출처 : [https://www.w3schools.com/css/]
