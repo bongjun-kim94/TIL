@@ -1256,4 +1256,68 @@ div {
 }
 ```
 
+- Resizing
+  - resize 속성은 사용자가 요소의 크기를 조정할 수 있는지 여부를 지정
+
+```css
+div {
+  /* 요소의 너비만 조정 */
+  resize: horizontal;
+  /* 요소의 높이만 조정 */
+  resize: vertical;
+  /* 요소의 높이와 너비를 모두 조정 */
+  resize: both;
+  overflow: auto;
+}
+
+textarea {
+  /* <textarea>는 기본적으로 크기 조정이 가능하지만, resize: none;을 사용하면 크기 조정이 비활성화됨 */
+  resize: none;
+}
+```
+
+- Outline Offset
+  - outline-offset 속성은 윤곽선과 요소의 가장자리 또는 테두리 사이에 공간을 추가
+  - \*외곽선 !== 테두리, 테두리와 달리 윤곽선은 요소의 테두리 외부에 그려지며 다른 내용과 겹칠 수 있다.
+  - 요소의 전체 너비와 높이는 윤곽선 너비의 영향을 받지 않음
+
+```css
+div.ex1 {
+  margin: 20px;
+  border: 1px solid black;
+  outline: 4px solid red;
+  outline-offset: 15px;
+}
+```
+
+- Media Queries
+  - 미디어 쿼리를 사용하는 것은 데스크톱, 랩톱, 태블릿 및 휴대폰에 맞춤형 스타일 시트를 제공하는 데 널리 사용되는 기술
+
+```css
+/* 뷰포트가 964px 까지 배경색을 blue로 변경 */
+@media screen and (max-width: 964px) {
+  body {
+    background-color: blue;
+    color: white;
+  }
+}
+
+/* 뷰포트가 480px 이상인 경우 배경색을 lightgreen으로 변경 */
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+/* 브라우저의 너비가 480px ~ 964px 사이인 경우 <div> 요소의 모양을 변경 */
+@media screen and (max-width: 964px) and (min-width: 480px) {
+  div.ex {
+    font-size: 24px;
+    padding: 50px;
+    border: 3px solid black;
+    background: yellow;
+  }
+}
+```
+
 출처 : [https://www.w3schools.com/css/]
