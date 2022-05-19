@@ -74,6 +74,7 @@ div {
 div {
   width: 300px;
   padding: 25px;
+  /* 요소의 전체 너비와 높이에 패딩과 테두리가 포함됨 */
   box-sizing: border-box;
 }
 ```
@@ -83,7 +84,7 @@ div {
 - width: 요소의 너비값을 설정
 - height: 요소의 높이값을 설정
 - min-width: 요소의 최대 너비값을 설정
-- min-height: 요소의 최소 너비값을 설정
+- min-height: 요소의 최소 너비값을 설정, 필요한 경우 축소되지만 원래 크기보다 크게 확대되지는 않는다.
 - max-width: 요소의 최대 너비값을 설정
 - max-height: 요소의 최대 높이값을 설정
 
@@ -500,6 +501,80 @@ img {
   height: 300px;
   border: 1px solid black;
 }
+```
+
+## Flex Container
+
+- 플렉스 컨테이너 속성
+
+  - flex-direction : 플렉스 항목 방향을 정의
+  - flex-wrap : 플렉스 항목을 래핑할지 여부 지정
+  - flex-flow : flex-direction flex-wrap 모두 설정하기 위한 약식 속성
+  - justify-content : 플렉스 항목을 정렬하는데 사용
+  - align-items : 플렉스 항목을 정렬하는데 사용
+  - align-content : 플렉스 하인을 정렬하는데 사용
+
+```css
+.flex-container {
+  display: flex;
+  /* flex-direction */
+  flex-direction: column; /* 플렉스 항목을 수직으로 쌓는다. */
+  flex-direction: column-reverse; /* 플렉스 아이템을 수직으로(아래에서 위) 쌓는다. */
+  flex-direction: row; /* 플렉스 항목을 가로로 쌓는다. */
+  flex-direction: row-reverse; /* 플렉스 항목을 가로로(오른쪽에서 왼쪽) 쌓는다  */
+
+  /* flex-wrap */
+  flex-wrap: wrap; /* 필요한 경우 플렉스 항목이 너비에 맞춰서 다음으로 넘어감 */
+  flex-wrap: nowrap; /* 기본값. 플렉스 항목이 래핑되지 않도록 지정 */
+  flex-wrap: wrap-reverse; /* 유연한 항목이 필요한 경우 역순으로 래핑 */
+
+  /* flex-flow */
+  flex-flow: row wrap;
+
+  /* justify-content */
+  justify-content: center; /* 컨테이너 중앙에 플렉스 항목을 정렬 */
+  justify-content: flex-start; /* 컨테이너 시작 부분에 플렉스 항목을 정렬(기본값) */
+  justify-content: flex-end; /* 컨테이너 끝에 플렉스 항목을 정렬 */
+  justify-content: space-around; /* 플렉스 항목에 균일한 간격을 만들어줌 */
+  justify-content: space-between; /* 플렉스 항목 사이에 균일한 간격지정 */
+
+  /* align-items */
+  align-items: center; /* 컨테이너 중간에 플렉스 항목을 정렬 */
+  align-items: flex-start; /* 컨테이너 맨 위에 플렉스 항목을 정렬 */
+  align-items: flex-end; /* 컨테이너 맨 아래 플렉스 항목을 정렬 */
+  align-items: stretch; /* 플렉스 항목을 확장하여 컨테이너를 채움(기본값) */
+  align-items: baseline; /* 기준선과 같은 플렉스 항목을 정렬 */
+}
+```
+
+## Flex Items
+
+- order : 플렉스 항목의 순서를 지정
+- flex-grow : 나머지 플렉스 항목에 비해 플렉스 항목이 얼마나 커질지 지정
+- flex-shrink : 나머지 플렉스 항목에 비해 플렉스 항목이 축소되는 정도를 지정
+- flex-basis : 플렉스 항목의 초기 길이를 지정
+- flex : 축약형. flex-grow, flex-shrink, flex-basis 순서로 지정됨
+- align-self : 유연한 컨테이너 내부에서 선택한 항목의 정렬을 지정
+
+```html
+<div class="flex-container">
+  <div style="order: 3">1</div>
+  <div style="order: 1">2</div>
+  <div style="order: 2">3</div>
+
+  <div style="flex-grow: 1">1</div>
+  <div style="flex-grow: 2">2</div>
+  <div style="flex-grow: 7">3</div>
+
+  <div>1</div>
+  <!-- 두 번째 플렉스 항목이 다른 플렉스 항목만큼 줄어들지 않도록 합니다. -->
+  <div style="flex-shrink: 0">2</div>
+  <div>3</div>
+
+  <div>1</div>
+  <div style="align-self: flex-start">2</div>
+  <div style="align-selg: flex-end">3</div>
+</div>
 ```
 
 - flex-basis 속성
@@ -1291,7 +1366,12 @@ div.ex1 {
 ```
 
 - Media Queries
+  - CSS3에 도입된 CSS 기술
   - 미디어 쿼리를 사용하는 것은 데스크톱, 랩톱, 태블릿 및 휴대폰에 맞춤형 스타일 시트를 제공하는 데 널리 사용되는 기술
+- 뷰포트란? : 웹 페이지에서 사용자가 볼 수 있는 영역
+  - 큰 고정 너비 요소를 사용하지 마시오.
+  - 컨텐츠가 잘 렌더링되기 위해 특정 뷰포트 너비에 의지하지 않도록 함
+  - CSS 미디어 쿼리를 사용하여 작은 화면과 큰 화면에 서로 다른 스타일 적용
 
 ```css
 /* 뷰포트가 964px 까지 배경색을 blue로 변경 */
@@ -1317,6 +1397,90 @@ div.ex1 {
     border: 3px solid black;
     background: yellow;
   }
+}
+```
+
+### Grid Elements
+
+- 그리드 레이아웃은 하나 이상의 자식 요소가 있는 부모 요소로 구성됨
+- Display Property
+  - display 속성이 grid 또는 inline-grid로 설정되면 HTML 요소는 그리드 컨테이너가 된다.
+- 그리드 항목의 수직선을 열(Column)이라고 합니다.
+- 그리드 항목의 수평선을 행(Row)라고 합니다.
+- Grid Gaps
+  - 각 열/행 사이의 공백을 간격이라고 한다.
+  - column-gap : 열 사이의 간격 설정
+  - row-gap : 행 사이의 간격 설정
+  - gap : row-gap, column-gap에 대한 약식속성
+- Grid Lines
+- Grid Container
+  - grid-template-columns
+    - 그리드 레이아웃 열 수를 정의하고, 각 열의 너비를 정의
+    - 그리드 레이아웃에 4개의 열이 포함되도록 하려면, 4개의 열 너비를 지정하거나 모든 열의 너비가 같아야 하는 경우 "auto" 지정
+  - grid-template-rows
+    - 각 행의 높이를 정의, 값은 공백으로 구분된 목록이며, 각 값은 해당 행의 높이를 정의
+  - justify-content
+    - 컨테이너 내부의 전체 그리드를 정렬하는데 사용
+    - 효과를 나타내려면 그리드의 전체 너비가 컨테이너 너비보다 작아야함
+  - align-content
+    - 컨테이너 내부의 전체 그리드를 수직으로 정렬하는데 사용
+
+```css
+.grid-container {
+  display: grid;
+  display: inline-grid;
+  column-gap: 50px; /* 열 사이의 간격을 설정 */
+  row-gap: 50px; /* 행 사이의 간격을 설정 */
+  gap: 50px 100px; /* gap 속성은 row-gap, column-gap 에 대한 약식속성 */
+  gap: 50px; /* 행 간격과 열 간격을 하나의 값으로 설정 */
+}
+
+.item1 {
+  /* 열 행 1에 그리드 항목을 배치하고, 열 행 3에서 끝나도록 한다. */
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 80px 200px auto 40px;
+  grid-template-rows: 80px 200px;
+
+  justify-content: space-evenly;
+  justify-content: space-around;
+  justify-content: space-between;
+  justify-content: center;
+  justify-content: start;
+  justify-content: end;
+
+  align-content: center;
+}
+```
+
+### Grid Item
+
+- 기본적으로 컨테이너에는 각 행의 각 열에 대해 하나의 그리드 항목이 있지만 여러 열 및 행에 걸쳐 있도록 그리드 항목의 스타일을 지정할 수 있다.
+- grid-column 속성은 항목을 배치할 열을 정의
+- grid-row 속성은 항목을 배치할 행을 정의
+- grid-area 속성은 grid-row-start, grid-column-start, grid-row-end, grid-column-end의 약식속성으로 사용
+
+```css
+.item1 {
+  /* item1이 1열에서 시작하고 5열보다 먼저 끝나도록 함 */
+  grid-column: 1 / 5;
+  /* item1이 1열에서 시작하여 3열로 확장되도록 함 */
+  grid-column: 1 / span 3;
+
+  /* item1이 행1에서 시작하여, 행4에서 끝나도록 한다. */
+  grid-row: 1 / 4;
+  /* item1이 1행에서 시작하여 2행에 걸쳐있도록 한다. */
+  grid-row: 1 / span 2;
+}
+
+.item8 {
+  /* item8을 행 1과 2행에서 시작하고, 행 5행과 6행에서 끝내도록 한다. */
+  grid-area: 1 / 2 / 5 / 6;
+  /* item8을 행 2행과 열 행 1에서 시작하고 2행과 3열로 확장합니다. */
+  /*        2행  1열    2행       3열  */
+  grid-area: 2 / 1 / span 2 / span 3;
 }
 ```
 
