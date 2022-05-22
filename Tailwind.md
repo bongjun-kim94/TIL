@@ -4,7 +4,7 @@
     npx tailwindcss init
 
     // 함께 설치해주어야함
-    npm install -D tailwindcss postcss autoprefixer 
+    npm install -D tailwindcss postcss autoprefixer
 
 - Tailwind CSS는 클래스 이름에 대한 모든 HTML 파일, JavaScript 구성 요소 및 기타 템플릿을 검색하고 해당 스타일을 생성한 다음 정적 CSS 파일에 작성하여 작동합니다.
 
@@ -21,6 +21,13 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css;
 ```
+
+### tailwind css 장점
+
+- class명을 고려할 필요가 없다.
+- css 파일 크기 감소
+- 스타일과 코드를 한 곳에서 관리해 직관적이다.
+- 쉬운 인라인 스타일
 
 ### tailwind css 단점
 
