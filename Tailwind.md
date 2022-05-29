@@ -18,8 +18,8 @@
 - slick에서 제공해주는 css를 사용하기 위해 import 해준다.
 
 ```js
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css;
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 ```
 
 ### tailwind css 장점
@@ -28,9 +28,11 @@ import 'slick-carousel/slick/slick-theme.css;
 - css 파일 크기 감소
 - 스타일과 코드를 한 곳에서 관리해 직관적이다.
 - 쉬운 인라인 스타일
+- custom으로 사용할 수 있다
 
 ### tailwind css 단점
 
 - 클래스명을 여러개 넣다보니 코드가 못생겨진다.
 - 클래스 명들을 html에 직접 입력함으로써 클래스가 반복되게 될 경우 용량 손해를 볼 수있다.
 - 필요한 클래스는 외우고 있어야하고, 검색을 자주 하게된다.
+- javascript 코드 사용 불가
