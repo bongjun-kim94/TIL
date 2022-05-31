@@ -35,4 +35,12 @@ export default function App() {
 }
 ```
 
+### 장점
+
+- 가볍고 다른 라이브러리와 호환이 잘된다.
+- 적은 코드로 퍼포먼스를 낼 수 있다.
+- 리렌더링 속도가 빠르다.
+
+### 단점
+
 출처 : https://react-hook-form.com/get-started
