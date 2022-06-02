@@ -1485,3 +1485,19 @@ div.ex1 {
 ```
 
 출처 : [https://www.w3schools.com/css/]
+
+### !important
+
+- CSS는 같은 속성을 여러번 정의했을때, 나중에 설정한 값이 적용된다.
+- 나중에 설정한 값이 적용되지 않게 하려면 속성값 뒤에 !important를 붙임
+
+```css
+p {
+  /* 배경색을 흰색으로 유지 */
+  background-color: white !important;
+}
+
+p {
+  background-color: blue;
+}
+```
