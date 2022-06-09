@@ -94,8 +94,15 @@ function reducer(state, action) {}
 ## useMemo
 
     함수형 컴포넌트 내부에서 발생하는 연산을 최적화,
-
     의존성이 변경되었을 때만 메모이제이션 된 값을 반환한다.
+
+- 메모이즈된 값을 return하는 hook
+- hook이기 때문에 함수형 컴포넌트 에서만 사용가능
+
+### React.memo
+
+- HOC(High Order Components) - 컴포넌트를 인자로 받아 새로운 컴포넌트를 다시 return
+- 클래스, 함수형 컴포넌트에서 사용
 
 ## useCallback
 
