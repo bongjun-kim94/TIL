@@ -14,21 +14,40 @@
 
 - pre-render가 꼭 필요한 동적 데이터가 있는 page에 사용. 속도는 느리지만 동적으로 수정 가능
 
-
 ### 동적 라우팅
+
     파일 네임이나 폴더에 []를 써줌으로 이 페이지는 동적 라우팅이 된다는 것을 명시
+
 ```js
 // 사용예시
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const test = () => {
-    const router = useRouter();
-    const { id } = router.query;
+  const router = useRouter();
+  const { id } = router.query;
 
-    return (
-        <>
-            <p>test : {id}</p>
-        </>
-    )
-}
+  return (
+    <>
+      <p>test : {id}</p>
+    </>
+  );
+};
+```
+
+### - Warning: Function components cannot be given refs. Attempts to access this ref will fail. Dis you mean to use React.forwardRef()? 에러
+
+- Next.js 에서 <Link>를 사용시 구성요소를 자식으로 사용할 떄 에러가 발생
+
+```js
+// error
+<Link>
+    <button></button>
+</Link>
+
+// success
+<Link>
+    <a>
+        <button></button>
+    </a>
+</Link>
 ```
