@@ -36,3 +36,15 @@ import "slick-carousel/slick/slick-theme.css";
 - 클래스 명들을 html에 직접 입력함으로써 클래스가 반복되게 될 경우 용량 손해를 볼 수있다.
 - 필요한 클래스는 외우고 있어야하고, 검색을 자주 하게된다.
 - javascript 코드 사용 불가
+
+### Unknown at rule @tailwindcss(unknownAtRules) 발생시
+
+    vscode 확장 기능인 PostCSS Language Support를 설치하면 밑줄이 사라짐
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@apply;
+```
