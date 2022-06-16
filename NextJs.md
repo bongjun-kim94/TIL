@@ -1,5 +1,8 @@
 # NextJs
 
+- 리액트 기반의 프레임워크
+  - 생산성과 편의성 증대
+  - SPA의 단점을 커버
 - Next.js는 기본적으로 모든 페이지를 pre-render한다.
 - 모든것을 자동으로 설정하는 `create-next-app`를 사용하여 새 Next.js앱을 만드는 것이 좋다.
 
@@ -59,6 +62,10 @@ const test = () => {
   );
 };
 ```
+
+### 서버 사이드 렌더링(SSR)
+- SSR은 사이트가 열릴때, 렌더링된 html을 불러온다. 빠르게 화면을 제공
+
 
 ### - Warning: Function components cannot be given refs. Attempts to access this ref will fail. Dis you mean to use React.forwardRef()? 에러
 
