@@ -14,6 +14,8 @@
 
 - 설치가 완료되면 `npm run dev`나 `yarn start`를 입력하여 개발 서버를 시작
 
+- `npm run build`
+
 ```json
 // package.json
 "scripts": {
@@ -64,8 +66,8 @@ const test = () => {
 ```
 
 ### 서버 사이드 렌더링(SSR)
-- SSR은 사이트가 열릴때, 렌더링된 html을 불러온다. 빠르게 화면을 제공
 
+- SSR은 사이트가 열릴때, 렌더링된 html을 불러온다. 빠르게 화면을 제공
 
 ### - Warning: Function components cannot be given refs. Attempts to access this ref will fail. Dis you mean to use React.forwardRef()? 에러
 
