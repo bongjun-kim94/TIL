@@ -68,6 +68,11 @@ const test = () => {
 ### 서버 사이드 렌더링(SSR)
 
 - SSR은 사이트가 열릴때, 렌더링된 html을 불러온다. 빠르게 화면을 제공
+- 상대적으로 서버 요청이 적음
+
+### 클라이언트 사이드 렌더링(CSR)
+
+- 서버는 요청을 받으면 클라이언트에 HTML과 JS를 보내줌 클라이언트는 받아서 렌더링을 시작
 
 ### - Warning: Function components cannot be given refs. Attempts to access this ref will fail. Dis you mean to use React.forwardRef()? 에러
 
