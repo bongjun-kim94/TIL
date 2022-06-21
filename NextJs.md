@@ -70,9 +70,24 @@ const test = () => {
 - SSR은 사이트가 열릴때, 렌더링된 html을 불러온다. 빠르게 화면을 제공
 - 상대적으로 서버 요청이 적음
 
+#### 장점
+- 초기 페이지 로드 시간이 빠르다.
+  - 렌더링이 준비된 HTML 파일을 브라우저에서 로드하기 때문
+
 ### 클라이언트 사이드 렌더링(CSR)
 
 - 서버는 요청을 받으면 클라이언트에 HTML과 JS를 보내줌 클라이언트는 받아서 렌더링을 시작
+
+- 모든것은 클라이언트에서 처리된다.
+
+#### 장점
+- 후속 페이지 로드 시간이 더 빠르다.
+- 모든 스트립트가 사전에 로드되어, CSR 로드 시간이 줄어든다.
+- 서버를 호출할 때마다 전체 UI를 로드할 필요가 없다.
+
+#### 단점
+- 초기 페이지 로드 시간이 SSR보다 느리다.
+  - HTML을 컴파일 하기 전에 기본 HTML, CSS 및 스크립트를 로드하기 떄문이다.
 
 ### - Warning: Function components cannot be given refs. Attempts to access this ref will fail. Dis you mean to use React.forwardRef()? 에러
 
