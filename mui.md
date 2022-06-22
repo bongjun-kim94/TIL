@@ -37,3 +37,11 @@ pl	padding-left
 px	padding-left, padding-right
 py	padding-top, padding-bottom
 ```
+
+### mui layout 
+- Container, Grid, box
+- Box: Box는 div를 대체하는 강력하고 편리한 컴포넌트
+- Grid: Container안의 레이아웃을 핸들링하고 반응형으로 배치할때 유용
+  - Grid의 breakpoints는 총 5개로 이루어져있다.
+  - xl, lg, md, sm, xs
+- Container: 레이아웃을 잡을때 좌 우 중앙 위치시 사용
