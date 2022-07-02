@@ -3,10 +3,23 @@
 - 동기란? 요청을 보내고, 응답을 받아야만 다음으로 진행할 수 있는 실행방식
 
 - 동기 동작원리
+
   - 코드가 실행되면 차례대로 Call Stack에 함수가 쌓인다
 
 - 비동기 동작원리
-  - Call Stack 에서 비동기 함수가 호출되면 Call Stack에 먼저 쌓였다가 백그라운드로 이동한 후  해당 함수가 등록되고 Call Stack에서 사라짐
+  - Call Stack 에서 비동기 함수가 호출되면 Call Stack에 먼저 쌓였다가 백그라운드로 이동한 후 해당 함수가 등록되고 Call Stack에서 사라짐
+
+### async await 사용법
+
+- async await은 promise를 좀 더 편하게 사용할 수 있게 해준다.
+
+```ts
+// async 키워드는 함수 앞에 위치
+async function ex() {
+  /* 함수 앞에 async 키워드를 붙이면 항상 promise를 반환 */
+  return;
+}
+```
 
 - 비동기란? 요쳥을 보내고, 응답과 상관없이 다음 동작을 실행할 수 있는 방식
 
