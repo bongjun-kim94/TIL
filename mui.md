@@ -45,3 +45,12 @@ py	padding-top, padding-bottom
   - Grid의 breakpoints는 총 5개로 이루어져있다.
   - xl, lg, md, sm, xs
 - Container: 레이아웃을 잡을때 좌 우 중앙 위치시 사용
+
+### useMideaQuery
+- React용 CSS 미디어 쿼리 훅이다. 쿼리가 일치하는지 여부에 따라 구성 요소를 렌더링
+```ts
+const isMobile =  useMediaQuery('(max-width: 600px)');
+
+console.log(isMobile); 
+
+```
