@@ -49,7 +49,9 @@ py	padding-top, padding-bottom
 ### useMideaQuery
 - React용 CSS 미디어 쿼리 훅이다. 쿼리가 일치하는지 여부에 따라 구성 요소를 렌더링
 ```ts
+const theme = useTheme();
 const isMobile =  useMediaQuery('(max-width: 600px)');
+const isMobile = useMediaQuery(theme.breakpoints('sm'));
 
 console.log(isMobile); 
 
