@@ -68,11 +68,21 @@ npm i qraphql
 
     *.graphql 의 파일에 존재하는 스키마와 쿼리를 바탕으로, 다양한 언어에 맞게 타입, 혹은 코드 자체를 생성해줍니다.
 
-
-
 ### GraphQl 단점?
 
 - 재귀적인 쿼리가 불가능
 - 고정된 요청과 응답만 필요한 경우 쿼리로 인해 요청의 크기가 REST API보다 커진다.
 - 데이터 쿼리의 상당 작업을 서버측으로 옮겨 서버 개발자 작업의 복잡성이 커집니다.
 - 캐싱이 REST API보다 훨씬 복잡
+
+### useQuery, useLazyQuery 차이점
+
+#### useQuery
+
+- useQuery는 query에 대한 결과를 응답
+  - 페이지가 로딩됐을때 자동으로 실행
+
+#### useLazyQuery
+
+- useLazyQuery는 결과와 쿼리를 실행할 수 있는 함수를 return 한다.
+  - 이벤트에 대한 응답으로 쿼리를 실행하는데 적합
