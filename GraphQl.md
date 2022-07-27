@@ -81,8 +81,10 @@ npm i qraphql
 
 - useQuery는 query에 대한 결과를 응답
   - 페이지가 로딩됐을때 자동으로 실행
+  - (컴포넌트가 실행될 때 자동으로 쿼리가 실행)
 
 #### useLazyQuery
 
 - useLazyQuery는 결과와 쿼리를 실행할 수 있는 함수를 return 한다.
   - 이벤트에 대한 응답으로 쿼리를 실행하는데 적합
+  - 특정 액션 이후에 데이터 호출
