@@ -75,6 +75,15 @@ npm i qraphql
 - 데이터 쿼리의 상당 작업을 서버측으로 옮겨 서버 개발자 작업의 복잡성이 커집니다.
 - 캐싱이 REST API보다 훨씬 복잡
 
+### GraphQl 구조
+
+- Query (쿼리 = 데이터)
+  - 읽기를 요청하는 구문
+- Mutation (변형)
+  - 수정을 요청하는 구문
+  - 쿼리를 추가, 삭제할 수 있다.
+- Subscription (설명)
+
 ### useQuery, useLazyQuery 차이점
 
 #### useQuery
