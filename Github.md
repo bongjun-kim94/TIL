@@ -49,3 +49,30 @@ $git push origin main
 
 - 가장 최근 커밋을 수정하는 편리한 방법
 - 새 커밋을 전체적으로 생성하지 않아도 기존 커밋에 결합하여 덮어쓴다.
+
+### Rebase
+
+- 2개의 branch를 합칠 때 사용한다.
+- merge와 비슷하나 merge는 두 branch의 최종결과만 합침
+- rebase는 branch의 변경사항을 순서대로 다른 branch에 적용하면서 합친다.
+
+### Pull Request
+
+- branch에서 완료된 작업을 프로젝트 동료들끼리 리뷰하고, master로 합치도록 요청하는 명령어
+
+### checkout
+
+- branch를 변경하는 명령어
+
+```
+// git checkout <브랜치명>
+$git checkout branch
+```
+
+### git stash
+
+- 변경한 내용을 임시저장하는 명령어
+
+```
+$git stash
+```
