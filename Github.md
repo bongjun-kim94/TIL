@@ -76,3 +76,19 @@ $git checkout branch
 ```
 $git stash
 ```
+
+### git force push
+
+- push를 강제로 하는 명령어
+
+```
+$git push -f
+```
+
+### git pull
+
+- 업데이트된 코드를 내려받을때 저장소의 코드를 업데이트 할 때 사용
+
+```
+$git pull
+```
