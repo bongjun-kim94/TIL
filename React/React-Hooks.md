@@ -8,6 +8,11 @@
     가장 대표적인 Hook 컴포넌트에 의지하지 않고 state를 가질 수 있게 해줌
     함수형 컴포넌트에서 가변적인 상태를 지닐 수 있게 해준다. 상태를 관리해야 할 때 사용
 
+#### setState()
+- setState() 는 비동기적으로 동작한다.
+- 함수형 컴포넌트 일 때는, useEffect를 사용하면 해결할 수 있다.
+- state가 발생하면 리렌더링이 계속 발생하여 리액트가 렌더링만 하기 때문에 렌더링을 줄이고자 배치(Batch) 기능을 사용해 비동기로 작동하는 것 이다.
+
 ```javascript
 // class component
 class test extends React.Component {
@@ -50,6 +55,8 @@ function test() {
   );
 }
 ```
+
+#
 
 ## useEffect
 
