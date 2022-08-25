@@ -69,6 +69,21 @@ $git push origin main
 $git checkout branch
 ```
 
+### git switch, restore
+
+- switch : 브랜치 변경
+- restore : 작업중인 파일을 되돌림(복원)
+
+```
+// 브랜치 변경
+$git switch branchName
+// 기존에 존재하지 않는 브랜치 생성 후 변경
+$git switch -c newBranchName
+
+// 작업중인 파일 중 기존 마지막 커밋의 상태로 되돌림
+$git restore test.tsx
+```
+
 ### git stash
 
 - 변경한 내용을 임시저장하는 명령어
