@@ -9,7 +9,11 @@
     함수형 컴포넌트에서 가변적인 상태를 지닐 수 있게 해준다. 상태를 관리해야 할 때 사용
 
 #### setState()
-- setState() 는 비동기적으로 동작한다.
+
+- setState는 비동기적으로 동작한다.
+- setState는 항상 즉시 컴포넌트를 업데이트 하지 않음
+- 두 번째 파라미터에 callback func 넣는게 불가능해져서, useEffect() 사용
+- 비동기적으로 작동하기 떄문에 setState()를 호출하고 바로 다음에 state를 읽으려하면 원하는 결과가 나오지 않는다.
 - 함수형 컴포넌트 일 때는, useEffect를 사용하면 해결할 수 있다.
 - state가 발생하면 리렌더링이 계속 발생하여 리액트가 렌더링만 하기 때문에 렌더링을 줄이고자 배치(Batch) 기능을 사용해 비동기로 작동하는 것 이다.
 
@@ -56,8 +60,6 @@ function test() {
 }
 ```
 
-#
-
 ## useEffect
 
     리액트 컴포넌트가 렌더릴 될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook이다.
@@ -87,6 +89,66 @@ function Example() {
     </div>
   );
 }
+```
+
+### componentDidMount
+
+- 컴포넌트를 처음 렌더링한 후에 실행
+
+### componentDidUpdate
+
+- 컴포넌트를 최초로 렌더링한 후에 아래 조건이 발생하면 실행
+  - props가 변경되는 시점
+  - state가 변경되는 시점
+  - 부모 컴포넌트 리렌더링 시
+  - 강제로 렌더링되는 시점
+  - 두 번째 파라미터로 아무 값도 전달하지 않음
+  - 위 상황이 발생하면 useEffect 훅에 전달한 콜백함수가 실행
+
+### componentWillUnMount
+
+- 컴포넌트가 DOM에서 제거될 떄 실행
+- componentDidMount 메소드에서 등록한 이벤트가 있다면 여기서 제거하는 작업을 수행해야 한다.
+
+### useEffect Clean-Up function
+
+- useEffect 훅의 콜백 함수가 반환한 componentWillUnMount 함수가 useEffect hook의 Clean-Up 함수다.
+- 반환하는 함수의 이름은 중요하지 않아서 화살표함수( () => {} ) 를 반환해도 상관없다
+  - 다음 세 가지는 Clean-Up 기능이 필요하지 않다.
+  - API 요청을 통한 데이터 가져오기
+  - 수동으로 Rect 컴포넌트 DOM 조적하기
+  - 로깅(logging)
+- 이벤트를 등록한 경우에는 메모리 누수가 발생하지 않도록 정리 해야한다.
+
+### useEffect Clean-Up 함수 실행순서
+
+- useEffect 훅의 두 번째 파라미터로 빈 배열이 들어갔기 때문에 리액트 컴포넌트가 제거되는 시점에 Clean-Up 함수가 실행
+- componentWillUnMount 메소드가 호출되는 동일한 시점에 Clean-Up 함수가 실행
+
+- 반면에 useEffect 훅의 두 번째 파라미터에 아무것도 넣어주지 않으면 이러한 순서로 실행된다.
+  - props/state 업데이트
+  - 컴포넌트 리렌더링
+  - 이전 이펙트의 Clean-Up 함수
+  - 새로운 이펙트 실행
+
+```ts
+// componentDidMount
+useEffect(() => {
+  console.log("componentDidMount");
+}, []);
+
+// componentDidUpdate
+useEffect(() => {
+  console.log("componentDidUpdate");
+});
+
+// componentWillUnmount
+useEffect(() => {
+  console.log("componentDidMount");
+  return function componentWillUnMount() {
+    console.log("componentWillUnMount");
+  };
+}, []);
 ```
 
 ## useReducer
