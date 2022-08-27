@@ -73,6 +73,7 @@ $git checkout branch
 
 - switch : 브랜치 변경
 - restore : 작업중인 파일을 되돌림(복원)
+  - 해당 명령어를 통해 원래 상태로 되돌림
 
 ```
 // 브랜치 변경

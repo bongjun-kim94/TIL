@@ -91,12 +91,14 @@ function Example() {
 }
 ```
 
-### componentDidMount
+### componentDidMount()
 
 - 컴포넌트를 처음 렌더링한 후에 실행
 
-### componentDidUpdate
+### componentDidUpdate()
 
+- 컴포넌트가 갱신되었을 때 DOM을 조작하기 위하여 이 메서드를 활용하면 좋다.
+- setState()를 즉시 호출할 수도 있지만, 조건문으로 감싸지 않으면 무슨 반복이 발생할 수 있다.
 - 컴포넌트를 최초로 렌더링한 후에 아래 조건이 발생하면 실행
   - props가 변경되는 시점
   - state가 변경되는 시점
@@ -105,13 +107,14 @@ function Example() {
   - 두 번째 파라미터로 아무 값도 전달하지 않음
   - 위 상황이 발생하면 useEffect 훅에 전달한 콜백함수가 실행
 
-### componentWillUnMount
+### componentWillUnMount()
 
-- 컴포넌트가 DOM에서 제거될 떄 실행
+- 컴포넌트가 DOM에서 제거될 떄 실행(페이지에서 사라질 때)
 - componentDidMount 메소드에서 등록한 이벤트가 있다면 여기서 제거하는 작업을 수행해야 한다.
 
 ### useEffect Clean-Up function
 
+- - Clean-Up 함수란 useEffect()에서 파라미터로 넣은 함수의 return 함수
 - useEffect 훅의 콜백 함수가 반환한 componentWillUnMount 함수가 useEffect hook의 Clean-Up 함수다.
 - 반환하는 함수의 이름은 중요하지 않아서 화살표함수( () => {} ) 를 반환해도 상관없다
   - 다음 세 가지는 Clean-Up 기능이 필요하지 않다.
