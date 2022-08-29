@@ -181,6 +181,15 @@ function reducer(state, action) {}
     주로 렌더링 성능을 최적화 해야 하는 상황에서 사용,
     이벤트 핸들러 함수를 필요할 때만 생성할 수 있다.
 
+- 메모이제이션된 콜백을 반환
+- react에 함수를 저장하여 매 실행마다 재생성 하지 않도록 한다.
+
+```ts
+const memoization = useCallback(() => {
+  todo(a, b);
+}, [a, b]);
+```
+
 ## useRef
 
     함수형 컴포넌트에서 ref를 쉽게 사용할 수 있도록 해준다.
