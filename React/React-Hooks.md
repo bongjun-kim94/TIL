@@ -185,6 +185,9 @@ function reducer(state, action) {}
 - react에 함수를 저장하여 매 실행마다 재생성 하지 않도록 한다.
 
 ```ts
+// useCallback(() => {...},[dependencies])
+// - 저장할 함수
+// - useCallback 함수의 dependencies (useEffect 와 동일)
 const memoization = useCallback(() => {
   todo(a, b);
 }, [a, b]);
