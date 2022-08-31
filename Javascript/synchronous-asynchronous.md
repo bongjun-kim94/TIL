@@ -9,6 +9,33 @@
 - 비동기 동작원리
   - Call Stack 에서 비동기 함수가 호출되면 Call Stack에 먼저 쌓였다가 백그라운드로 이동한 후 해당 함수가 등록되고 Call Stack에서 사라짐
 
+### Promose
+
+- 비동기 작업의 최종 완료 또는 실패를 나타내는 객체
+- Promise 객체는 비동기 작업이 맞이할 미래의 완료 또는 실패과 그 결과값을 나타냄
+- 함수에 콜백을 전달하는 대신에, 콜백을 첨부하는 방식의 객체
+
+- Promise는 다음 중 하나의 상태를 가짐
+  - 대기(pending): 이행 하지도, 거부하지도 않은 초기 상태
+  - 이행(fulfilled): 연산이 성공적으로 완료됨
+  - 거부(rejected): 연산 실패
+- 이행이나 거부될 때, 프로미스의 `then` 메서드에 의해 대기열(큐)에 추가된 처리기들이 호출
+
+```ts
+// 비동기 작업이 성공한 경우 resolve()를 호출하고, 실패한 경우 reject()를 호출
+let exPromise = new Promise((resolve, reject) => {
+  // 이 예제에서는 setTimeout()을 사용해 비동기 코드를 흉내냅니다.
+  setTimeout(() => {
+    resolve("성공!");
+  }, 500);
+});
+
+exPromise.then((successMessage) => {
+  // successMessage는 위에서 resolve() 호출에 제공한 값
+  console.log("Promise " + successMessage);
+});
+```
+
 ### 콜백함수
 
 - 콜백함수는 함수 안에서 실행되는 또 다른 함수
@@ -31,6 +58,7 @@ async function ex() {
 ```
 
 - 동기란? 동시에 일어난다는 뜻, 요청과 결과가 동시에 일어나고, 요청을 하면 끝날때까지 결과가 주어져야 다음 작업 실행
+
   - 장점 : 설계가 간단하고 직관적
   - 단점 : 요청에 의한 결과가 봔환될 때 까지 대기해야한다.
 
