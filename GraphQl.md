@@ -2,6 +2,41 @@
 
     GraphQL은 웹 클라이언트가 데이터를 질의하는데에 최적화된 일종의 인터페이스이자 쿼리 언어입니다.
 
+### Schema란?
+
+- gql은 스키마 작성에 사용되는 언어 타입을 가지고 있어, SDL(Schema Definition Language)이라고 한다.
+- GraphQL은 SDL이라 어떤 언어나 프레임워크를 쓰던간에 상관이 없다.
+
+### Types란?
+
+- gql에서 가장 중요한 특징 중 하나이다.
+- 뒤에 !(느낌표)는 field가 null이 될 수 없다는 걸 의미.
+- Query에서 특정 데이터를 꼭 리턴 시켜 주어야 한다.
+- 아래 구문에선 age만 null로 리턴 가능
+
+```ts
+type User {
+  id: ID!
+  name: String!;
+  age: Int
+}
+```
+
+### Scalar types
+
+- Int: 부호가 있는 32비트 정수
+- Float: 부호가 있는 부동소수점 값
+- String: UTF-8 문자열
+- Boolean: True or False return
+- ID : 고유한 값의 지표
+
+### Query, Mutation, Subscribe
+
+- Query: 서버로부터 데이터를 받는 방법(데이터를 받는 방식)
+- Mutation: 서버에 올라간 데이터를 업데이트 하는 것(Create, Update, Delete)
+  - 서버에 변경된 데이터를 보내거나 업데이트 된 데이터를 받는 방식
+- Subscribe: 서버와 실시간으로 연결을 유지하는 방법(실시간 통신에 사용)
+
 ## Rest API vs GraphQl
 
 ```js
