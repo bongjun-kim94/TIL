@@ -62,6 +62,16 @@ exPromise.then((successMessage) => {
 ### async await 사용법
 
 - async await은 promise를 좀 더 편하게 사용할 수 있게 해준다.
+- function 앞에 async 키워드는 두 가지 효과가 있다.
+
+  - 함수는 언제나 promise를 반환
+  - 함수 안에서 await를 사용할 수 있다.
+
+- Promise 앞에 async 키워드를 붙이면, javascript는 promise가 처리될 때까지 대기
+- 처리가 완료되면 조건에 따라 동작이 이어짐
+  - 에러발생 - 예외가 생성됨(에러가 발생한 장소에서 throw error를 호출한 것과 동일)
+  - 에러 미발생 - promise 객체의 result 값을 반환
+- async/await를 함께 사용하면 읽고, 쓰기 쉬운 비동기 코드를 작성할 수 있다.
 
 ```ts
 // async 키워드는 함수 앞에 위치
