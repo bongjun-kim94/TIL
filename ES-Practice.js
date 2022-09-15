@@ -162,3 +162,63 @@ Promise.allSettled(promiseAll).then((data) => console.log(data));
 
 // throw
 // - throw 문은 사용자 정의 예외를 발생(throw)할 수 있습니다. 예외가 발생하면 현재 함수의 실행이 중지되고,
+
+function resolvePromise(x) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(x);
+    }, 2000);
+  });
+}
+
+let add = async function (x) {
+  let a = await resolvePromise(20);
+  let b = await resolvePromise(30);
+  return x + a + b;
+};
+
+add(10).then((v) => {
+  console.log(v); // 60
+});
+
+// class
+let TestClass = class {
+  constructor() {}
+  let() {
+    return "Hello, World!";
+  }
+  WhoIsThere() {
+    return TestClass.name;
+  }
+};
+
+let instance = new TestClass();
+instance.let();
+instance.WhoIsThere();
+TestClass.name;
+
+console.log(TestClass.name);
+console.log(instance.let());
+console.log(instance.WhoIsThere());
+
+let greeting = (person) => {
+  let personName = person ? person.name : "stranger";
+  return `I'm, ${personName}`;
+};
+
+console.log(greeting({ name: "bongjun" })); // I'm, bongjun
+console.log(greeting(null)); // I'm, stranger
+
+// delete 연산자
+// - 객체의 속성을 제거
+const Persons = {
+  fitstName: "BongJun",
+  lastName: "Kim",
+};
+
+console.log(Persons.fitstName); // BongJun
+
+// delete Persons.fitstName;
+// delete Persons["fitstName"];
+
+console.log(Persons.fitstName); // undefined
