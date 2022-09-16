@@ -222,3 +222,41 @@ console.log(Persons.fitstName); // BongJun
 // delete Persons["fitstName"];
 
 console.log(Persons.fitstName); // undefined
+
+// 구조 분해 할당
+const restArr = [10, 20, 30, 40, 50];
+
+console.log(restArr[0], restArr[1], ...restArr); // 10 20 10 20 30 40 50
+
+const abOjbect = ({ a, b } = { a: 10, b: 20 });
+console.log(abOjbect.a, abOjbect.b); // 10 20
+
+const [ff, rr, ee, qq, tt] = restArr;
+console.log(tt, qq, ee, rr, ff); // 50 40 30 20 10
+
+const [aa, bb, ...cc] = [1, 2, 3, 4, 5];
+console.log(aa, bb); // 1 2
+console.log(cc); // [ 3, 4, 5 ]
+
+let division = 3;
+console.log((division /= 2)); // 1.5
+
+console.log("1" == 1); // true
+console.log("1" === 1); // false
+
+console.log(2 ** (3 ** 2));
+
+let bar = 10;
+console.log((bar **= 10)); // 10000000000
+
+console.log(bar instanceof String);
+
+// null
+// - JavsScript 원시 값 중 하나로, 어떤 값이 의도적으로 비어있음을 표현하며
+// - 불리언 연산에서는 거짓으로 취급
+
+// Nullish coalescing operator
+// - 널 병합 연산자(??)는 왼쪽 피 연산자가 null 또는 undefined일 때, 오른쪽 피 연산자를 반환하고, 그렇지 않으면 왼쪽 피 연산자를 반환하는 논리 연산자
+
+const nullish = null ?? "default";
+console.log(nullish); // default
