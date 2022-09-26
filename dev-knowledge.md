@@ -73,5 +73,22 @@
 - MPA는 해당 페이지만 제공해주면 되기 때문에 초기에 화면을 빠르게 보여주지만 페이지를 이동할 때 마다 새로 페이지를 로드해서 사용성이 떨어짐
 - SPA는 한 번 요청에 모든 페이지를 받는다. 그래서 처음에는 로딩이 느릴 수 있지만, 그 이후에 페이지 전환은 빠르게 가능해서 좋은 사용성을 제공
 
+### SSR(Server Side Rendering), CSR(Client Side Rendering)
+
+- CSR
+
+  - CSR은 브라우저 측에서 HTML, CSS, JavsScript를 처음부터 실행시키는 방식
+  - 브라우저에서 전부 언어를 실행하므로 웹 서버는 큰 부담이 없다.
+
+- SSR
+
+  - SSR은 웹 서버에서 HTML, CSS, JavsScript를 미리 한 번 실행시킨 후 브라우저에게 건네주는 방식
+  - API 통신을 웹 서버에서 미리 진행해서 데이터를 적용할 수 있다.
+  - 결과가 적용된 파일을 받게되어 빠르게 화면을 보여줄 수 있음
+
+- react, vue 프레임워크는 CSR 렌더링 방식에 SPA 형태로 제공
+
+- SSR 전용 react, vue 프레임워크로 next.js, nuxt.js 가 있다.
+
 출처 : https://joshua1988.github.io/web-development/http-part1/
 https://www.grabbing.me/8d9e92b19e084c5a8cb173a695aa81af
