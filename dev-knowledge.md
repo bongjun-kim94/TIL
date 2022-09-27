@@ -90,5 +90,9 @@
 
 - SSR 전용 react, vue 프레임워크로 next.js, nuxt.js 가 있다.
 
+### 크로스 브라우징
+
+- `크로스 브라우징` 은 브라우저의 종류에 상관없이 똑같이 웹을 보여주려는 시도
+
 출처 : https://joshua1988.github.io/web-development/http-part1/
 https://www.grabbing.me/8d9e92b19e084c5a8cb173a695aa81af
