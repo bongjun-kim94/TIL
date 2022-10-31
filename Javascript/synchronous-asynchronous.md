@@ -160,6 +160,29 @@ asyncCall();
 // "resolved"
 ```
 
+```ts
+async function* foo() {
+  yield await Promise.resolve("a");
+  yield await Promise.resolve("b");
+  yield await Promise.resolve("c");
+}
+
+let str = "";
+
+const generate = async () => {
+  for await (const value of foo()) {
+    str += value;
+  }
+  console.log(str);
+};
+
+generate(); // "abc"
+```
+
+- \*yield
+
+  - yield 키워드는 제너레이트 함수(function\* or 레거시 generator 함수)를 중지하거나 재개하는데 사용됨
+
 - 동기란? 동시에 일어난다는 뜻, 요청과 결과가 동시에 일어나고, 요청을 하면 끝날때까지 결과가 주어져야 다음 작업 실행
 
   - 장점 : 설계가 간단하고 직관적
