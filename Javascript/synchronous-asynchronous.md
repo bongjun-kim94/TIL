@@ -130,6 +130,36 @@ async function ex() {
 }
 ```
 
+- async 함수에는 await 식이 포함될 수 있다.
+- 이 식은
+  1. async 함수의 실행을 일시 중지한 후
+  2. 전달된 promise의 해결을 기다린 후
+  3. async 함수의 실행을 다시 시작하고 완료 후 값을 반환
+- await 키워드는 async 함수 에서만 유효
+  - async 함수의 본문 외부에서 사용시 SyntaxError가 발생
+- async/await 함수의 목적은 여러 promise의 동작을 동기스럽게 사용할 수 있게 해줌
+- async 함수는 항상 promise를 반환
+
+```ts
+const resolve2Seconds = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("resolved");
+    }, 2000);
+  });
+};
+
+const asyncCall = async () => {
+  console.log("call");
+  const result = await resolve2Seconds();
+  console.log(result);
+};
+
+asyncCall();
+// "call"
+// "resolved"
+```
+
 - 동기란? 동시에 일어난다는 뜻, 요청과 결과가 동시에 일어나고, 요청을 하면 끝날때까지 결과가 주어져야 다음 작업 실행
 
   - 장점 : 설계가 간단하고 직관적
