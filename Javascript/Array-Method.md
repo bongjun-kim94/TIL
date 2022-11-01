@@ -261,3 +261,25 @@ console.log(arr); // [ 'kim', 'lee', 'park' ]
 // length는 메서드가 아니다.
 console.log("Total arr :" + arr.length); // 3
 ```
+
+### unshift()
+- 새로운 요소의 배열을 맨 앞쪽에 추가하고, 새로운 길이를 반환
+- unshift 메서드는 배열 형태의 객체 시작점에 주어진 값을 삽입
+```ts
+const arr = [1, 2, 3];
+
+console.log(arr.unshift(4, 5)); // 5
+
+console.log(arr); // [4, 5, 1, 2, 3]
+
+const arr2 = [1, 2];
+
+arr2.unshift(0);
+
+console.log(arr2); // [0, 1, 2]
+
+arr2.unshift(-2, -1);
+
+console.log(arr2); // [-2, -1, 0, 1, 2]
+
+```
