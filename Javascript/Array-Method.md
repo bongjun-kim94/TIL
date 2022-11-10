@@ -57,6 +57,8 @@ console.log(arr.slice(1, 3)); // [2, 3]
 
 ### concat
 
+    concat() 메서드는 둘 이상의 배열을 병합하는데 사용된다.
+    기존 배열을 변경하지 않고, 새 배열을 반환
     합쳐서 새 배열로 반환
 
 ```javascript
@@ -242,7 +244,8 @@ console.log(result); // 128
 
 ### push
 
-    배열 끝에 여러 값을 추가함
+    배열 끝에 하나 이상의 요소를 추가하고,
+    배열의 새 길이를 반환
 
 ```javascript
 let name = ["kim", "lee", "park"];
