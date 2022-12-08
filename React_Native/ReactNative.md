@@ -74,3 +74,22 @@ const WelcomeScreen = () => (
   - 프로젝트 설정에 시간이 많이 소요된다.
   - 모든 라이브러리 들을 따로 설치해줘야한다.
   - Android Studio(Android) 및 XCode(IOS)를 설치 해야한다.
+
+### Scroll View
+- 스크롤 뷰(ScrollView)는 여러개의 컴포넌트(Components)와 뷰(Views)를 담을 수 있는 스크롤 컨테이너다.
+
+```ts
+import { ScrollView, View, Text } from 'react-native';
+
+const TestApp = () => {
+  return (
+    <ScrollView>
+      <View>
+        <Text>
+          TestApp
+        </Text>
+      </View>
+    </ScrollView>
+  )
+}
+```
