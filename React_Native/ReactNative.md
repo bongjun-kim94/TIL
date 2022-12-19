@@ -124,3 +124,22 @@ const testFocused = () => {
   return <Text>{isFocused ? 'isFocused' : 'unFocused'}
 }
 ```
+
+### SafeAreaVuew
+
+- 내비게이션 막대, 탭 표시줄, 도구 모음 및 기타 보기 부분을 반영하기 위해 중첩된 콘텐츠를 렌더링하고 패딩을 자동으로 적용
+
+```ts
+import React from 'react';
+import { StyleSheet, Text, SafeAreaView } from 'react-native';
+
+const TestApp = () => {
+  return (
+    <SafeAreaView>
+      <Text>Test content</Text>
+    </SafeAreaView>
+  );
+}
+
+export default TestApp;
+```
