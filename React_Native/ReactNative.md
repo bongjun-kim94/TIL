@@ -117,13 +117,27 @@ const TestApp = () => {
 import { Text } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 
-// ...
-
 const testFocused = () => {
   const isFocused = useIsFocused();
   return <Text>{isFocused ? 'isFocused' : 'unFocused'}
 }
 ```
+
+### View
+- UI를 구축하기 위한 가장 기본적인 구성 요소 (div랑 비슷)
+
+```ts
+import { View, Text } from 'react-native';
+
+const testView = () => {
+  return (
+    <View>
+      <Text>Hello World!</Text>
+    </View>
+  )
+}
+```
+
 
 ### SafeAreaVuew
 
