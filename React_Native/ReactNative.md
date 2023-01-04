@@ -96,6 +96,47 @@ const TestApp = () => {
 };
 ```
 
+### FlatList
+- 기본 플랫 목록을 렌더링 하기 위한 고성능 인터페이스
+- `ScrollView`와는 다르게 한 번에 모든 데이터를 렌더링 하지 않고 화면에 보여지는 부분만 렌더링 한다.
+- ex) 데이터의 길이가 가변적이고, 데이터의 양을 예측할 수 없는 경우에 사용한다.
+
+```ts
+import React, { useState } from "react";
+import { FlatList, SafeAreaView, Text } from "react-native";
+
+const DATA = [
+  {
+    id: "1",
+    title: "test item1",
+  },
+  {
+    id: "2",
+    title: "test item2",
+  },
+  {
+    id: "3",
+    title: "test item3",
+  },
+];
+
+const App = () => {
+  const [selectedId, setSelectedId] = useState(null);
+
+  return (
+    <SafeAreaView>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        extraData={selectedId}
+      />
+    </SafeAreaView>
+  );
+};
+
+```
+
 ### React Navigation
 
 - 모바일 앱은 보통 여러 화면으로 구성되어 있는데, 이러한 앱을 만드려면 내비게이션 관련 서드 파티 라이브러리를 사용해야 한다.
