@@ -130,3 +130,39 @@ _.map(arr, "id"); // [1, 2, 3]
 
 _.map(arr, "text"); // ['test1', 'test2', 'test3']
 ```
+
+### \_.isEmpty(value)
+
+- value 값이 빈 값인지 체크
+
+```ts
+_.isEmpty(null);
+// true
+
+_.isEmpty(true);
+// true
+
+_.isEmpty(1);
+// true
+
+_.isEmpty([1, 2, 3]);
+// false
+
+_.isEmpty({ a: 1 });
+// false
+```
+
+### \_.isEqual(value, other)
+
+- 두 대상의 값을 비교하여 동일한지 확인
+
+```ts
+const object = { a: 1 };
+const other = { a: 1 };
+
+_.isEqual(object, other);
+// true
+
+object === other;
+// false
+```
