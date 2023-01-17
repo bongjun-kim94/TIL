@@ -149,6 +149,9 @@ const App = () => {
   - 홈페이지 제작 서비스 Wix에서 관리한다.
   - 내비게이션 기능이 자바스크립트가 아닌 각 플랫폼의 네이티브 코드로 구현되어 있다.
   - react-navagation보다 더욱 네이티브 스러운 사용 경험을 제공
+- navigation.navigate - 이동
+- navigation.push - 화면 위로 쌓기 (state값을 유지)
+- navigation.goBack - 뒤로가기
 
 ### useIsFocused
 
@@ -165,28 +168,28 @@ const testFocused = () => {
 ```
 
 ### View
+
 - UI를 구축하기 위한 가장 기본적인 구성 요소 (div랑 비슷)
 
 ```ts
-import { View, Text } from 'react-native';
+import { View, Text } from "react-native";
 
 const testView = () => {
   return (
     <View>
       <Text>Hello World!</Text>
     </View>
-  )
-}
+  );
+};
 ```
-
 
 ### SafeAreaVuew
 
 - 내비게이션 막대, 탭 표시줄, 도구 모음 및 기타 보기 부분을 반영하기 위해 중첩된 콘텐츠를 렌더링하고 패딩을 자동으로 적용
 
 ```ts
-import React from 'react';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
 
 const TestApp = () => {
   return (
@@ -194,7 +197,12 @@ const TestApp = () => {
       <Text>Test content</Text>
     </SafeAreaView>
   );
-}
+};
 
 export default TestApp;
 ```
+
+### Button
+
+- 리액트 네이티브에서 버튼의 종류는 굉장히 많다.
+- 안드로이드와 아이폰 둘 다 동일한 효과를 적용시키고 싶다면 `Pressable`이나 `TouchableWithoutFeedback`을 사용하는 것이 좋다
