@@ -2,6 +2,7 @@
 - React를 위한 상태관리 라이브러리다.
 - recoil 상태를 사용하는 컴포넌트는 부모 트리 어딘가에 나타나는 `RecoilRoot`가 필요하다.
 - 루트 컴포넌트가 `RecoilRoot`를 넣기에 가장 좋다.
+- React 프로젝트를 위한 전역 상태관리 라이브러리들 중 하나도, 2020년 5월 Facebook에서 출시(React 전용)
 
 - 설치
 ```ts
@@ -48,3 +49,11 @@ const [test, setTest] = useRecoilState(testState);
 
 - setState만 사용할 경우, 쉼표를 넣어줘야 한다.
 - const [, setState] = useRecoilState(초기값);
+
+### useRecoilState
+- 전역으로 useState를 설정하게 해줌
+- 선언을 하는 것이 아니고, 전역적으로 선언된 atom을 가져오는 역할
+
+```ts
+const [a ,b] = useRecoilState();
+```
