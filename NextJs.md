@@ -106,3 +106,25 @@ const test = () => {
     </a>
 </Link>
 ```
+### Router
+- Next.js 에서 라우터를 사용하려면 `useRouter`훅을 사용해서 `router`객체에 접근할 수 있다.
+
+```ts
+import { useRouter } from 'next/router';
+
+const TestRouter = () => {
+  const router = useRouter();
+
+  const routerClick = (e) => {
+    e.preventDefault();
+    router.push('/');
+  }
+  return (
+    <>
+      <p>test router</p>
+      <button onClick={routerClick}>라우터 버튼</button>
+    </>
+  )
+}
+
+```
