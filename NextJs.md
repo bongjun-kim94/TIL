@@ -128,3 +128,9 @@ const TestRouter = () => {
 }
 
 ```
+
+### router.push, router.place 차이
+- `router.push` 사용시 히스토리가 순서대로 쌓여서 메인 다음 페이지에서 뒤로 가기 버튼 클릭시 메인 페이지로 돌아간다.
+
+- `router.replace` 사용시 현재 페이지를 변경해줘서 뒤로 가기 클릭시 메인 페이지 이전의 페이지로 이동
+- `router.replace`는 페이지를 이동하기보다 현재 페이지를 바꿔줌
