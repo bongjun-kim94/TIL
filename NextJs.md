@@ -134,3 +134,11 @@ const TestRouter = () => {
 
 - `router.replace` 사용시 현재 페이지를 변경해줘서 뒤로 가기 클릭시 메인 페이지 이전의 페이지로 이동
 - `router.replace`는 페이지를 이동하기보다 현재 페이지를 바꿔줌
+
+### Next.js 13버전
+
+- `next/link` Link 태그 사용시 자식요소로 `<a></a>`태그 생략가능
+```ts
+<Link href='/Main'><a>메인</a></Link>
+<Link href='/Main'>메인</Link>
+```
