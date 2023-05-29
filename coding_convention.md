@@ -9,21 +9,18 @@ pnpm i
 repo=<repo name> pnpm run dev
 ```
 
-## 지에스렌터카 홈페이지
+## 홈페이지
 
 - 실행방법
 
 ```
-repo=gsrental-page pnpm run dev
+npm run dev
 ```
 
-## 모빌리버스 홈페이지
+## 코딩 컨벤션
 
-- 실행방법
-
-```
-repo=mobiliverse-page pnpm run dev
-```
+- 코딩 컨벤션이란?
+  - 코딩 컨벤션은 읽고, 관리하기 쉬운 코드를 작성하기 위한 일종의 코딩 스타일 규약
 
 ## 공통 코딩 컨벤션
 
