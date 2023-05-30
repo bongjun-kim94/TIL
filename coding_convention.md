@@ -26,7 +26,7 @@ npm run dev
 
 - 카멜 케이스(camel case)
   - 컴포넌트 파일명, 폴더명, 변수명, 함수명, 속성명
-  - inline style (ex. `<div style={{ fontSize: '1rem', fontWeight: '500'}} />`)
+  - inline styled (ex. `<div style={{ fontSize: '1rem', fontWeight: '500'}} />`)
 
 ```ts
 const camelCase;
@@ -89,3 +89,10 @@ const TestComp = () => {
 
 export default TestComp;
 ```
+
+- ES6 문법
+  - pread 연산자를 사용한다.
+  - 구조 분해 할당을 사용한다.
+  - let과 const만 사용한다. (var 사용금지)
+  - 되도록이면 화살표 함수를 사용한다.
+  - 직접 null을 체크하기 보다 optional chaining 연산자 (?.)를 사용한다.
